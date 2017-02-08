@@ -1,5 +1,5 @@
 # Files to ignore
 
 *.pyc
-.DS_STORE
-.DS_Store
+*.DS_STORE
+*.DS_Store
