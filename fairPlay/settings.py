@@ -25,7 +25,11 @@ SECRET_KEY = 'kcuh82y65x%m)^us!ozu64#e3rl*sq#92n0r(l^6me88#=(!q%'
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
+<<<<<<< HEAD
 ALLOWED_HOSTS = ["fairplay-silverli.c9users.io"]
+=======
+ALLOWED_HOSTS = ["fairplay-silverli.c9users.io", "jamie-fairplay-klousnitzer.c9users.io", "localhost"]
+>>>>>>> e9ff789da90763a7e12956bd72ba1db4282b5821
 
 
 # Application definition
@@ -37,6 +41,7 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
+    'webapp',
 ]
 
 MIDDLEWARE = [
