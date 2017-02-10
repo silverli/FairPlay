@@ -22,8 +22,13 @@ Before you create a workspace in Cloud9, do the steps below to make sure your SS
 ## Running your new Django app
 When you run the project, you will run into errors.
 
-``` sudo pip install psycopg2 ```
+Type in ``` sudo pip install psycopg2 ```
 
 Start the database with ```sudo service postgresql start```
 
-psql
+### Create the database
+
+1. Type ```psql```
+2. Then do ```create database fairPlay;```
+3. ```alter user fairplay with password:’5cx3HYZUtaSU7MRM67kB’```
+4. ```alter user fairplay with supers #superuser abilities```
