@@ -8,6 +8,7 @@ Before you create a workspace in Cloud9, do the steps below to make sure your SS
 2. Copy the ssh key and go to your Github account [settings](https://github.com/settings/profile).
 3. Click on "SSH and GPG Keys", then click add "New SSH Key". Put "Cloud9" for the title and then paste in the key from Cloud9.
 4. Click "Add SSH Key".
+5. Edit or create an authorized_keys file in your ```~/.ssh``` folder and paste in the SSH key from Cloud9.
 
 ## Getting Started
 1. Create an account in Cloud9 and log in.
