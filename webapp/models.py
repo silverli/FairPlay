@@ -12,6 +12,9 @@ class District (models.Model):
     id = models.PositiveIntegerField(primary_key=True)
     name = models.CharField(max_length=100)
 
+    def __str__(self):
+        return '%s %s' % (self.id, self.name)
+
 class School (models.Model):
     district = models.ForeignKey(District)
     composite_id = models.PositiveIntegerField(primary_key=True)
@@ -19,12 +22,18 @@ class School (models.Model):
     school_id = models.CharField(max_length=20)
     county = models.CharField(max_length=100)
     
+    def __str__(self):
+        return '%s - %s' % (self.district.name, self.name)
+    
 class GradeEnrollment (models.Model):
     school = models.ForeignKey(School)
     school_year = models.CharField(max_length=15)
     grade_level = models.CharField(max_length=32)
     boys = models.PositiveIntegerField()
     girls = models.PositiveIntegerField()
+    
+    def __str__(self):
+        return '%s - %s - %s' % (self.school.name, self.grade_level, self.school_year)
     
 class SportsEnrollment (models.Model):
     school = models.ForeignKey(School)
@@ -39,3 +48,5 @@ class SportsEnrollment (models.Model):
     competetions_scheduled = models.PositiveIntegerField()
     competions_played = models.PositiveIntegerField()
     
+    def __str__(self):
+        return '%s - %s - %s' % (self.school.name, self.self.grade_level, self.sport)
