@@ -11,6 +11,6 @@ Before you create a workspace in Cloud9, do the steps below to make sure your SS
 
 ## Getting Started
 1. Create an account in Cloud9 and log in.
-2. Click "Create a new workspace". Name your workspace something like "fair-play-hackathon" whatever. 
-3. In the field that says "Clone from Git or Mercurial URL", put in ```git@github.com:silverli/FairPlay.git```
-4. Under "Choose a Template", pick "Django".
+2. Click ***Create a new workspace***. Name your workspace something like "fair-play-hackathon" whatever. 
+3. In the field that says ***Clone from Git or Mercurial URL***, put in ```git@github.com:silverli/FairPlay.git```
+4. Under ***Choose a Template***, pick "Django".
