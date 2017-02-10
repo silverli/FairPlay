@@ -38,4 +38,8 @@ Start the database with ```sudo service postgresql start```
 8. run this ```gunzip dbexport.pgsql.gz | psql fairplay < dbexport.pgsql``` to get the data for this hackathon
 9. Upgrade Django with ```sudo pip install --upgrade Django ```
 
-Go to https://fair-play-hackathon-anastasialanz.c9users.io/admin/
+### Running the app
+
+1. Then do ```python manage.py create superuser``` to create a new user for logging into the app.
+2. Press the green button and run the app!
+3. Go to https://fair-play-hackathon-[username].c9users.io/admin/
