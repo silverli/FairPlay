@@ -21,5 +21,7 @@ Before you create a workspace in Cloud9, do the steps below to make sure your SS
 
 ## Running your new Django app
 When you run the project, you will run into errors.
-- ``` sudo pip install psycopg2 ```
-- Start the database with ```sudo service postgresql start```
+
+``` sudo pip install psycopg2 ```
+
+Start the database with ```sudo service postgresql start```
