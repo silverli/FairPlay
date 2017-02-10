@@ -42,4 +42,4 @@ Start the database with ```sudo service postgresql start```
 
 1. Then do ```python manage.py createsuperuser``` to create a new user for logging into the app.
 2. Press the green button and run the app!
-3. Go to https://fair-play-hackathon-[username].c9users.io/admin/
+3. Go to your admin /admin
