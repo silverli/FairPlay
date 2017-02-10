@@ -1,18 +1,16 @@
-# FAIR:PLAY HACKATHON REPOSITORY
+# FAIR:PLAY Hackathon Repo
+This project uses Django.
 
-## Django Project
+Before you create a workspace in Cloud9, do the steps below to make sure your SSH key is set up.
+
+## SSH Key steps
+1. In Cloud9, go to the [settings](https://c9.io/account/settings) and click on the "SSH Keys" tab.
+2. Copy the ssh key and and go to your Github account [settings](https://github.com/settings/profile).
+3. Click on "SSH and GPG Keys", then click add "New SSH Key". Put "Cloud9" for the title and then paste in the key from Cloud9.
+4. Click "Add SSH Key".
 
 ## Getting Started
-Create an account in Cloud9 and log in.
-
-Click "Create a new workspace". Name your workspace something like "fair-play-hackathon" whatever. 
-
-In the field that says "Clone from Git or Mercurial URL", put in ```git@github.com:silverli/FairPlay.git```
-
-Under "Choose a Template", pick "Django".
-
-### SSH Key steps
-In Cloud9, go to the [settings](https://c9.io/account/settings) and click on the "SSH Keys" tab.
-Copy the ssh key and and go to your Github account [settings](https://github.com/settings/profile).
-Click on "SSH and GPG Keys", then click add "New SSH Key". Put "Cloud9" for the title and then paste in the key from Cloud9.
-Click "Add SSH Key".
+1. Create an account in Cloud9 and log in.
+2. Click "Create a new workspace". Name your workspace something like "fair-play-hackathon" whatever. 
+3. In the field that says "Clone from Git or Mercurial URL", put in ```git@github.com:silverli/FairPlay.git```
+4. Under "Choose a Template", pick "Django".
