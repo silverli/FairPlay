@@ -31,10 +31,10 @@ Start the database with ```sudo service postgresql start```
 1. Type ```psql``` to open the interactive terminal for working with Postgres
 2. Create a user called **fairplay** ```create user fairplay;```
 3. Then do ```create database fairplay;``` to create a database called **fairplay**
-4. ```alter user fairplay with password 'JmUbR3dUojwuirGk2Kls'```
+4. ```alter user fairplay with password 'JmUbR3dUojwuirGk2Kls';```
 5. ```alter user fairplay with superuser;```
 6. To quit this terminal type ```\q```.
-7. Then run ```python manage.py migrate``` to migrate your database
+~~7. Then run ```python manage.py migrate``` to migrate your database~~
 8. run this ```gunzip dbexport.pgsql.gz | psql fairplay < dbexport.pgsql``` to get the data for this hackathon
 9. Upgrade Django with ```sudo pip install --upgrade Django ```
 
