@@ -29,7 +29,7 @@ Start the database with ```sudo service postgresql start```
 ### Create the database
 
 1. Type ```psql``` to open the interactive terminal for working with Postgres
-2. create user fairplay;
+2. Create a user called **fairplay** ```create user fairplay;```
 3. Then do ```create database fairplay;``` to create a database called **fairplay**
 4. ```alter user fairplay with password 'JmUbR3dUojwuirGk2Kls'```
 5. ```alter user fairplay with superuser;```
