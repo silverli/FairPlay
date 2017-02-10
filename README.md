@@ -25,3 +25,5 @@ When you run the project, you will run into errors.
 ``` sudo pip install psycopg2 ```
 
 Start the database with ```sudo service postgresql start```
+
+psql
