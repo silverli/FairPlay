@@ -35,7 +35,7 @@ Start the database with ```sudo service postgresql start```
 5. ```alter user fairplay with superuser;```
 6. To quit this terminal type ```\q```.
 7. Then run ```python manage.py migrate``` to migrate your database
-8. run this ```gunzip dbexport.pgsql.gz | psql fairplay``` to get the data for this hackathon
+8. run this ```gunzip dbexport.pgsql.gz | psql fairplay < dbexport.pgsql``` to get the data for this hackathon
 9. Upgrade Django with ```sudo pip install --upgrade Django ```
 
 Go to https://fair-play-hackathon-anastasialanz.c9users.io/admin/
