@@ -32,3 +32,5 @@ Start the database with ```sudo service postgresql start```
 2. Then do ```create database fairPlay;``` to create a database called **fairPlay**
 3. ```alter user fairplay with password:’5cx3HYZUtaSU7MRM67kB’```
 4. ```alter user fairplay with supers #superuser abilities```
+
+To quit this terminal type ```\q```.
