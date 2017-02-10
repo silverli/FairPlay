@@ -4,7 +4,7 @@ This project uses Django.
 Before you create a workspace in Cloud9, do the steps below to make sure your SSH key is set up.
 
 ## SSH Key steps
-1. In Cloud9, go to the [settings](https://c9.io/account/settings) and click on the "SSH Keys" tab.
+1. In [Cloud9](https://c9.io), go to the [settings](https://c9.io/account/settings) and click on the "SSH Keys" tab.
 2. Copy the ssh key and go to your Github account [settings](https://github.com/settings/profile).
 3. Click on "SSH and GPG Keys", then click add "New SSH Key". Put "Cloud9" for the title and then paste in the key from Cloud9.
 4. Click "Add SSH Key".
