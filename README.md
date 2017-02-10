@@ -29,8 +29,12 @@ Start the database with ```sudo service postgresql start```
 ### Create the database
 
 1. Type ```psql``` to open the interactive terminal for working with Postgres
-2. Then do ```create database fairPlay;``` to create a database called **fairPlay**
-3. ```alter user fairplay with password:’5cx3HYZUtaSU7MRM67kB’```
-4. ```alter user fairplay with supers #superuser abilities```
+2. create user fairplay;
+3. Then do ```create database fairplay;``` to create a database called **fairplay**
+4. ```alter user fairplay with password 'JmUbR3dUojwuirGk2Kls'```
+5. ```alter user fairplay with superuser;```
 
 To quit this terminal type ```\q```.
+
+Once you see the "It worked!" page, run this ```gunzip dbexport.pgsql.gz | psql fairplay```.
+
