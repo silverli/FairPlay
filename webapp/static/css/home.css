@@ -2,7 +2,34 @@
 body {
     font-family: 'Nunito', sans-serif;
     color: #333;
+    margin:0;
 }
+header {
+    background-color:#41a2b4; 
+    padding:8px;
+}
+nav ul{
+    padding-left:0;
+}
+nav ul li{
+    display:inline-block;
+    margin-right:20px;
+}
+nav ul li:last-child{
+    margin-right:0;
+}
+nav ul li a{
+    text-transform: uppercase;
+    color: #fff;
+    text-decoration: none;
+    transition:color 0.3s ease-in;
+    
+}
+nav ul li a:hover{
+    color: #ff7128;
+}
+
+
 main {
     width:60%;
     margin:0 auto;
