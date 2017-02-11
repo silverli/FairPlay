@@ -52,7 +52,8 @@ class HomePageView(TemplateView):
 
 def school_view(request,schoolid):
     school = School.objects.get(composite_id = schoolid)
-    schoolyear="2015-2016"
+    schoolyear="2014-2015"
+    print "SCHOOL", school
     data_ge = GradeEnrollment.objects.filter(school = school, school_year=schoolyear)
     data_se = SportsEnrollment.objects.filter(school = school, school_year=schoolyear)
 
@@ -64,24 +65,39 @@ def school_view(request,schoolid):
     total_boys=0
     total_girls=0
     
+    print "DATA ROWS", data_se
+    print data_se[0].school_year
     for result in data_ge:
-        total_boys += total_boys + result.boys
-        total_girls += total_girls + result.girls
+        total_boys +=  result.boys
+        total_girls += result.girls
 
     for result in data_se:
-        boys_athletes += boys_athletes + result.boys
-        girls_athletes += girls_athletes + result.girls
-        total_athletes += girls_athletes + boys_athletes
-        
+        boys_athletes += result.boys
+        girls_athletes += result.girls
+        total_athletes += result.students
+    
+   
+    proportion_girls = 0
+    proportion_girls_athletes = 0
+    new_needed = 0
+    multiplier = 0
+    total_athletes = float(total_athletes)
+    proportion_girls = float(proportion_girls)
+    proportion_girls_athletes = float(proportion_girls_athletes)
+    girls_athletes = float(girls_athletes)
+    total_students = float(total_students)
+    new_needed = float(new_needed)
+    total_girls = float(total_girls)
+    multiplier = float(multiplier)
     total_students = total_boys + total_girls
-#    proportion_girls = total_girls / total_students * 100
-#    proportion_girls_athletes= girls_athletes / total_athletes * 100
-#    new_needed = total_girls / total_students * total_athletes - girls_athletes # number of opportunities needed to achieve equity
-#    multiplier = proportion_girls_athletes / 5 # i.e. your school is X times more than the legal gap
+    proportion_girls = total_girls / total_students * 100
+    proportion_girls_athletes= girls_athletes / total_athletes * 100
+    new_needed = total_girls / total_students * total_athletes - girls_athletes # number of opportunities needed to achieve equity
+    multiplier = proportion_girls_athletes / 5 # i.e. your school is X times more than the legal gap
     
     return render_to_response('school_view.html',{
         "schools":school,
-#        "opportunities_needed":new_needed,
+        "opportunities_needed":new_needed,
         "cheerleading_num1":5,
         "cheerleading_num2":7,
         "state_avg":15,
@@ -90,5 +106,5 @@ def school_view(request,schoolid):
         "girls":total_girls,
         "boy_ath":boys_athletes,
         "girl_ath":girls_athletes,
-#        "multiplier":multiplier
+        "multiplier":multiplier
     })
