@@ -1,22 +1,28 @@
+{% load static %}
+<!DOCTYPE html>
 <html>
-    
-    <head>School Name: {{school.name}}</head>
-    <head>School District | School County: {{school.district.name}}</head>
-<!--    <head>Grades X-Y</head> -->
-    <head>Title IX Gap *2014-2015*   *Gap goes here*</head>
-    <head>How is the gap calculated?</head> 
-    <header>
-            <a href="https://google.com" target="_blank"><img src="{% static "img/fairplay-logo-black.png" %}" width="300" height="68"></a>
+    <head>
+        <title>FAIR:PLAY</title>
+        <link href="{% static "css/home.css" %}" rel="stylesheet">
+    </head>
+    <body>
+        <header>
             <nav>
-                <ul>
-                    <li><a href="#">Schools</a></li>
-                    <li><a href="#">Take Action</a></li>
-                    <li><a href="#">Donate</a></li>
-                </ul>
+                <a href="https://google.com" target="_blank">
+                    <img class="left" src="{% static "img/fairplay-logo-black.png" %}" width="300" height="68">
+                </a>
+                    <ul>
+                        <li><a href="#">Schools</a></li>
+                        <li><a href="#">Take Action</a></li>
+                        <li><a href="#">Donate</a></li>
+                    </ul>
             </nav>
-    </header>
+        </header>
 <body>
-    
+    <h2>School Name: {{school.name}}</h2>
+    <h2>School District | School County: {{school.district.name}}</h2>
+    <h2>Title IX Gap *2014-2015*   *Gap goes here*</h2>
+    <h2>How is the gap calculated?</h2> 
     <p>Showing Data From:</p>
     <p>2015-2016<t>2014-2015</t><t>2013-2014</t><t>2012-2013</t></p>
     <p>Enrollment</p>
