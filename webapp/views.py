@@ -125,7 +125,14 @@ def school_view(request,schoolid):
     proportion_girls = total_girls / total_students * 100
     proportion_girls_athletes= girls_athletes / total_athletes * 100
     new_needed = total_girls / total_students * total_athletes - girls_athletes # number of opportunities needed to achieve equity
-    multiplier = proportion_girls_athletes / 5 # i.e. your school is X times more than the legal gap
+    multiplier = title_nine_gap / 5 # i.e. your school is X times more than the legal gap
+    
+    new_needed = round(new_needed, 0)
+    total_girls = round(total_girls, 0)
+    girls_athletes = round(girls_athletes, 0)
+    total_boys = round(total_boys, 0)
+    boys_athletes = round(boys_athletes, 0)
+    multiplier = round(multiplier, 1)
     
     return render_to_response('school_view.html',{
         "school":school,
