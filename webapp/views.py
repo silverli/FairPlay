@@ -1,4 +1,5 @@
 from django.shortcuts import render
+from django.views.decorators.csrf import csrf_protect
 from django.views.generic import TemplateView
 from django.shortcuts import render_to_response
 from django.http import HttpResponse
@@ -19,7 +20,7 @@ class HomePageView(TemplateView):
         except:
             pass
     
-        return render_to_response('christians_test.html',{
+        return render(request, 'christians_test.html',{
             "schools":schools,
             "search":search
         })
