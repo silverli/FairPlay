@@ -1,3 +1,32 @@
+@import url('https://fonts.googleapis.com/css?family=Nunito');
 body {
-    background-color: red;
+    font-family: 'Nunito', sans-serif;
+    color: #333;
+}
+main {
+    width:60%;
+    margin:0 auto;
+}
+h1 {
+    text-align:center;
+}
+.school {
+    list-style-type:none;
+    padding-left:0;
+}
+.school li{
+    background-color: #e6e6e6;
+    padding:16px;
+    margin-bottom:16px; 
+}
+.school li h3{
+    margin-top:0;
+}
+
+.school__district, .school__county{
+    font-size:14px; 
+}
+.school__district{
+    margin-right:20px; 
+}
 }
