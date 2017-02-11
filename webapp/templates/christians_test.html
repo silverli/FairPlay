@@ -4,23 +4,18 @@
         <title>FAIR:PLAY</title>
     </head>
     <body>
-      <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
-      <link rel="stylesheet" href="css/theme.css">
-      <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
-      <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
-        <h1>FAIR:PLAY</h1>
+        <h1><center>FAIR:PLAY</center></h1>
         <h2>Ensuring Equity in school sports</h2>
         <p>Pennsylvania schools are short changing female athletes.</p>
         <p>Title IX guarantees equitable educational opportunitities for girls and young women, including in athletics. 
         The law has been in force for over 40 years, yet many Pennsylvaia schools do not appear to be complying.</p>
         
-        <form action="." method="post">
-            {% csrf_token %}      
-            <input type="text" name="search" placeholder="Search..">
+        <form action="." method="post"> {% csrf_token %}      
+            <input type="text" name="search" placeholder="Search for a school..">
             <input type="submit">
         </form>
         {% if schools %}
-            These schools start with "{{search}}":<br />
+            These schools start with <b>"{{search}}"</b>:<br />
             {% for school in schools %}
                 <b>School</b>: {{school.name}} <b>District</b>: {{school.district.name}}<br />
             {% endfor %}
@@ -28,17 +23,5 @@
                 No schools started with {{search}}
         {% endif %}
         
-        
-        
-         {% if schools %}
-            These schools start with "{{search}}":<br />
-            {% for school in schools %}
-                <b>School</b>: {{school.name}} <b>District</b>: {{school.district.name}}<br />
-            {% endfor %}
-        {% elif search and not schools %}
-                No schools started with {{search}}
-        {% else %}
-            Put a ?query=something at the end of the url to search something
-        {% endif %}
     </body>
 </html>
