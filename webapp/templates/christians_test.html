@@ -6,7 +6,8 @@
         <link href="{% static "css/home.css" %}" rel="stylesheet">
     </head>
     <body>
-        <h1><center>FAIR:PLAY</center></h1>
+        <main>
+        <h1>FAIR:PLAY</h1>
         <h2>Ensuring Equity in school sports</h2>
         <p>Pennsylvania schools are short changing female athletes.</p>
         <p>Title IX guarantees equitable educational opportunitities for girls and young women, including in athletics. 
@@ -17,13 +18,13 @@
             <input type="submit">
         </form>
         {% if schools %}
-            These schools start with <b>"{{search}}"</b>:<br />
+            <p>These schools start with <b>"{{search}}":</b></p>
             <ul class="school">
             {% for school in schools %}
                 <li>
                     <h3>{{school.name}}</h3>
-                    <h4>District: <span>{{school.district.name}}</h4> 
-                    <h4>County: <span>{{school.county}}</span></h4>
+                    <span class="school__district"><b>District: </b><span>{{school.district.name}}</span></span>
+                    <span class="school__county"><b>County: </b><span>{{school.county}}</span></span>
                 </li>
             {% endfor %}
             
@@ -31,5 +32,6 @@
                 No schools started with {{search}}
         {% endif %}
         </ul>
+        </main>
     </body>
 </html>
