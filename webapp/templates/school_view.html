@@ -20,9 +20,10 @@
         </header>
 <body>
     <h2>School Name: {{school.name}}</h2>
-    <h2>School District {{school.district.name}}</h2>
+    <h2>School District: {{school.district.name}}</h2>
     <h2>School County: {{school.county}}</h2>
-    <h2>Title IX Gap *most recent available year* {{title_nine_gap}}%</h2>
+    <h2>Title IX Gap: {{title_nine_gap}}%</h2>
+    <h2><small> (most recent available year)</small></h2>
     <h2>How is the gap calculated?</h2> 
     <p>Showing Data From:</p>
     <p>2015-2016<t>2014-2015</t><t>2013-2014</t><t>2012-2013</t></p>
@@ -38,9 +39,9 @@
         <p>*Pie chart goes here*</p><br>
         <p>{{opportunities_needed}} new opportunities for girls are needed to achieve equity.</p>    <br>
 <!-- this section is just for testing -->
-        <p>Num girls {{girls}} <t>Num boys {{boys}}</t></p><br>
-        <p>Num girl athletes {{girl_ath}} <t>Num boy athletes {{boy_ath}}</t></p><br>
-        <p>multiplier is {{multiplier}}</p><br>
+        <p>{{girls}} girls enrolled<t> {{boys}} boys enrolled</t></p><br>
+        <p>{{girl_ath}} girl athletes <t> {{boy_ath}} boy athletes</t></p><br>
+        <p>This is {{multiplier}} times the legal gap</p><br>
 <!-- -->
         <p>Potential additional athletic opportunities if cheerleading qualifies as a competitive sport for this school {{cheerleading_num1}} girls {{cheerleading_num2}} boys</p><br>
         <p>Calculations on FAIR:PLAY exlude cheerleading, which qualifies as a sport only under specific conditions.</p><br>
