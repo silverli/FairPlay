@@ -24,3 +24,6 @@ def test_view(request):
 def second_view(request):
     district = request.GET['query']
     
+def index(request):
+    return render_to_response('christians_test.html')
+    

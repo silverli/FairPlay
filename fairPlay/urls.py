@@ -22,6 +22,7 @@ urlpatterns = [
     url(r'^admin/', admin.site.urls),
     url(r'^test1$', webapp.views.test_view, name='test_view'),
     url(r'^second_view', webapp.views.second_view, name='second_view'),
+    url(r'^', webapp.views.index)
 ]
 
 
