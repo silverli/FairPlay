@@ -31,11 +31,11 @@
             <p>These schools start with <b>"{{search}}":</b></p>
             <ul class="school">
             {% for school in schools %}
-                <li>
+               <a href="school_view/{{school.composite_id}}"><li>
                     <h3>{{school.name}}</h3>
                     <span class="school__district"><b>District: </b><span>{{school.district.name}}</span></span>
                     <span class="school__county"><b>County: </b><span>{{school.county}}</span></span>
-                </li>
+                </li></a>
             {% endfor %}
             
         {% elif search and not schools %}

@@ -7,6 +7,34 @@ from django.template import Context, Template
 
 from webapp.models import District, School, GradeEnrollment, SportsEnrollment
 
+def title_nine_calc(school, school_year = None):
+    
+    if(not school_year):
+        school_year = GradeEnrollment.objects.order_by('school_year').last().school_year
+    
+    enrollment = GradeEnrollment.objects.filter(school=school, school_year=school_year)
+    sports_enrollment = SportsEnrollment.objects.filter(school=school, school_year=school_year).exclude(girls=0, boys=0)
+    
+    if(not sports_enrollment):
+        return False
+    
+    total, girls = 0, 0
+    
+    for grade_level in enrollment:
+        total += grade_level.boys + grade_level.girls
+        girls += grade_level.girls
+        
+    percent_girls_enrolled = (float(girls) / float(total))*100
+
+    total_athletes, girl_athletes = 0, 0
+    
+    for sport in sports_enrollment:
+        total_athletes += sport.girls + sport.boys
+        girl_athletes += sport.girls
+
+    girl_athlete_percentage = (float(girl_athletes) / float(total_athletes))*100
+    
+    return percent_girls_enrolled - girl_athlete_percentage
 
 # Create your views here.
 
@@ -53,10 +81,14 @@ class HomePageView(TemplateView):
 def school_view(request,schoolid):
     school = School.objects.get(composite_id = schoolid)
     schoolyear="2014-2015"
-    print "SCHOOL", school
     data_ge = GradeEnrollment.objects.filter(school = school, school_year=schoolyear)
-    data_se = SportsEnrollment.objects.filter(school = school, school_year=schoolyear)
+    data_se = SportsEnrollment.objects.filter(school = school, school_year=schoolyear).exclude(girls=0,boys=0)
 
+
+    title_nine_gap = title_nine_calc(school)
+
+    if title_nine_gap:
+        title_nine_gap = round(title_nine_gap, 2)
 
     total_athletes=0
     boys_athletes=0
@@ -65,8 +97,6 @@ def school_view(request,schoolid):
     total_boys=0
     total_girls=0
     
-    print "DATA ROWS", data_se
-    print data_se[0].school_year
     for result in data_ge:
         total_boys +=  result.boys
         total_girls += result.girls
@@ -89,6 +119,8 @@ def school_view(request,schoolid):
     new_needed = float(new_needed)
     total_girls = float(total_girls)
     multiplier = float(multiplier)
+    total_students = float(total_students)
+    total_boys = float(total_boys)
     total_students = total_boys + total_girls
     proportion_girls = total_girls / total_students * 100
     proportion_girls_athletes= girls_athletes / total_athletes * 100
@@ -96,7 +128,7 @@ def school_view(request,schoolid):
     multiplier = proportion_girls_athletes / 5 # i.e. your school is X times more than the legal gap
     
     return render_to_response('school_view.html',{
-        "schools":school,
+        "school":school,
         "opportunities_needed":new_needed,
         "cheerleading_num1":5,
         "cheerleading_num2":7,
@@ -106,5 +138,6 @@ def school_view(request,schoolid):
         "girls":total_girls,
         "boy_ath":boys_athletes,
         "girl_ath":girls_athletes,
-        "multiplier":multiplier
-    }
+        "multiplier":multiplier,
+        "title_nine_gap":title_nine_gap
+    })

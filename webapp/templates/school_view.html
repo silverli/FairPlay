@@ -1,9 +1,11 @@
+{% load static %}
 <html>
     
-    <head>School Name: {{school.name}}</head>
-    <head>School District | School County: {{school.district.name}}</head>
+    <head>School Name: {{school.name}}</head><br>
+    <head>School District:{{school.district.name}}</head><br>
+    <head>School County: {{school.county}}</head><br>
 <!--    <head>Grades X-Y</head> -->
-    <head>Title IX Gap *2014-2015*   *Gap goes here*</head>
+    <head>Title IX Gap *most recent year* {{title_nine_gap}}</head><br>
     <head>How is the gap calculated?</head> 
     <header>
             <a href="https://google.com" target="_blank"><img src="{% static "img/fairplay-logo-black.png" %}" width="300" height="68"></a>
