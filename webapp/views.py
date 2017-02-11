@@ -119,4 +119,4 @@ def school_view(request,schoolid):
         "girl_ath":girls_athletes,
 #        "multiplier":multiplier
     })
->>>>>>> 1e8ab7ef18cf841ec4330272220323e6c8e7b614
+
