@@ -1,5 +1,8 @@
+{% load static %}
 <html>
-    <head></head>
+    <head>
+        <script src="{% static "js/test.js" %}"></script>
+    </head>
     <body>
         {% if schools %}
             These schools start with "{{query}}":<br />
