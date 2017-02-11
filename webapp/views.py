@@ -107,4 +107,4 @@ def school_view(request,schoolid):
         "boy_ath":boys_athletes,
         "girl_ath":girls_athletes,
         "multiplier":multiplier
-    })
+    }
