@@ -19,6 +19,7 @@
         <input type="submit">
         </form>
         {% if schools %}
+<<<<<<< HEAD
             These schools start with <b>"{{query}}"</b>:<br />
             {% for school in schools %}
                 <b>School</b>: {{school.name}} <b>District</b>: {{school.district.name}}<br />
@@ -26,6 +27,14 @@
         {% elif query and not schools %}
                 No schools started with {{query}}
         {% else %}
+=======
+            These schools start with "{{search}}":<br />
+            {% for school in schools %}
+                <b>School</b>: {{school.name}} <b>District</b>: {{school.district.name}}<br />
+            {% endfor %}
+        {% elif search and not schools %}
+                No schools started with {{search}}
+>>>>>>> 8a3a29da85c9487213feb9d5b333078b78735c11
         {% endif %}
         
     </body>
