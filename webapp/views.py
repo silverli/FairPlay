@@ -1,3 +1,11 @@
+from django.shortcuts import render
+from django.views.generic import TemplateView
+
+
+# Create your views here.
+class HomePageView(TemplateView):
+    def get(self, request, **kwargs):
+        return render(request, 'index.html', context=None)
 from django.shortcuts import render_to_response
 from django.http import HttpResponse
 
@@ -23,7 +31,7 @@ def test_view(request):
     
 def second_view(request):
     district = request.GET['query']
-    
+
 def index(request):
     return render_to_response('christians_test.html')
-    
+
