@@ -14,10 +14,20 @@
         <p>Title IX guarantees equitable educational opportunitities for girls and young women, including in athletics. 
         The law has been in force for over 40 years, yet many Pennsylvaia schools do not appear to be complying.</p>
         
-        <form action="">       
+        <form action="." method="post"> {% csrf_token %}      
         <input type="text" name="search" placeholder="Search..">
         <input type="submit">
         </form>
         
+         {% if schools %}
+            These schools start with "{{search}}":<br />
+            {% for school in schools %}
+                <b>School</b>: {{school.name}} <b>District</b>: {{school.district.name}}<br />
+            {% endfor %}
+        {% elif search and not schools %}
+                No schools started with {{search}}
+        {% else %}
+            Put a ?query=something at the end of the url to search something
+        {% endif %}
     </body>
 </html>
