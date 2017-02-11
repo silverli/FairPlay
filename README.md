@@ -34,8 +34,9 @@ Start the database with ```sudo service postgresql start```
 4. ```alter user fairplay with password 'JmUbR3dUojwuirGk2Kls';```
 5. ```alter user fairplay with superuser;```
 6. To quit this terminal type ```\q```.
-7. run this ```gunzip dbexport.pgsql.gz | psql fairplay < dbexport.pgsql``` to get the data for this hackathon
-8. Upgrade Django with ```sudo pip install --upgrade Django ```
+7. Unzip the database file ```gunzip dbexport.pgsql.gz ```
+8. Then do ```psql -d fairplay -f dbexport.pgsql```
+9. Upgrade Django with ```sudo pip install --upgrade Django ```
 
 ### Running the app
 
