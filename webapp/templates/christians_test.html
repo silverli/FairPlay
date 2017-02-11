@@ -18,6 +18,18 @@
         <input type="text" name="search" placeholder="Search..">
         <input type="submit">
         </form>
+        {% if schools %}
+            These schools start with "{{query}}":<br />
+            {% for school in schools %}
+                <b>School</b>: {{school.name}} <b>District</b>: {{school.district.name}}<br />
+            {% endfor %}
+        {% elif query and not schools %}
+                No schools started with {{query}}
+        {% else %}
+            Put a ?query=something at the end of the url to search something
+        {% endif %}
+        
+        
         
     </body>
 </html>
