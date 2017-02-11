@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>FAIR:PLAY</title>
+    </head>
+    <body>
+        <h1><center>FAIR:PLAY</center></h1>
+        <h2>Ensuring Equity in school sports</h2>
+        <p>Pennsylvania schools are short changing female athletes.</p>
+        <p>Title IX guarantees equitable educational opportunitities for girls and young women, including in athletics. 
+        The law has been in force for over 40 years, yet many Pennsylvaia schools do not appear to be complying.</p>
+        
+        <form action="." method="post"> {% csrf_token %}      
+            <input type="text" name="search" placeholder="Search for a school..">
+            <input type="submit">
+        </form>
+        {% if schools %}
+            These schools start with <b>"{{search}}"</b>:<br />
+            <ul class="school">
+            {% for school in schools %}
+                <li>
+                    <h3>{{school.name}}</h3>
+                    <h4>District: <span>{{school.district.name}}</h4> 
+                    <h4>County: <span>{{school.county}}</span></h4>
+                </li>
+            {% endfor %}
+            
+        {% elif search and not schools %}
+                No schools started with {{search}}
+        {% endif %}
+        </ul>
+    </body>
+</html>
