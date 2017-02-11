@@ -49,4 +49,4 @@ class SportsEnrollment (models.Model):
     competions_played = models.PositiveIntegerField()
     
     def __str__(self):
-        return '%s - %s - %s' % (self.school.name, self.self.grade_level, self.sport)
+        return '%s - %s - %s' % (self.school.name, self.grade_level, self.sport)
