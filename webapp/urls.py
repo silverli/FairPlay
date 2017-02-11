@@ -4,4 +4,5 @@ from webapp import views
 urlpatterns = [
     url(r'^school_view/(?P<schoolid>([0-9]+))/?$', views.school_view, name='school_view'),
     url(r'^$', views.HomePageView.as_view()),
+    # url(r'^', views.index)
 ]

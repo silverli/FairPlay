@@ -15,17 +15,20 @@ Including another URLconf
 """
 from django.conf.urls import url, include
 from django.contrib import admin
+from django.conf.urls.static import static
 
+from fairPlay import settings
 import webapp.views
 
 urlpatterns = [
     url(r'^admin/', admin.site.urls),
     url(r'^', include('webapp.urls')),
-    url(r'^test1$', webapp.views.test_view, name='test_view'),
-    url(r'^second_view', webapp.views.second_view, name='second_view'),
-    url(r'^', webapp.views.index)
+    # url(r'^test1$', webapp.views.test_view, name='test_view'),
+    # url(r'^second_view', webapp.views.second_view, name='second_view'),
+    # url(r'^', webapp.views.index)
+    
 
-]
+] + static(settings.STATIC_URL, document_root=settings.STATIC_ROOT)
 
 
 
