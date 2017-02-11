@@ -1,20 +1,16 @@
 from django.shortcuts import render
 from django.views.generic import TemplateView
-
-
-# Create your views here.
-class HomePageView(TemplateView):
-    def get(self, request, **kwargs):
-        return render(request, 'index.html', context=None)
 from django.shortcuts import render_to_response
 from django.http import HttpResponse
-
 from django.template import Context, Template
-
 from webapp.models import District, School
 
 # Create your views here.
 
+class HomePageView(TemplateView):
+    def get(self, request, **kwargs):
+        return render(request, 'christians_test.html', context=None)
+        
 def test_view(request):
     query, schools = None, None
     print request.GET.get('query')
