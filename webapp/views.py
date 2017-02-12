@@ -60,6 +60,11 @@ class HomePageView(TemplateView):
             "schools":schools,
             "search":search
         })
+
+    
+class TakeActionPageView(TemplateView):
+    template_name = "take_action.html"
+    
         
 # def test_view(request):
 #     query, schools = None, None
