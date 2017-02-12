@@ -1,22 +1,16 @@
-<html>
-    
-    <head>School Name: {{school.name}}</head>
-    <head>School District | School County: {{school.district.name}}</head>
-<!--    <head>Grades X-Y</head> -->
-    <head>Title IX Gap *2014-2015*   *Gap goes here*</head>
-    <head>How is the gap calculated?</head> 
-    <header>
-            <a href="https://google.com" target="_blank"><img src="{% static "img/fairplay-logo-black.png" %}" width="300" height="68"></a>
-            <nav>
-                <ul>
-                    <li><a href="#">Schools</a></li>
-                    <li><a href="#">Take Action</a></li>
-                    <li><a href="#">Donate</a></li>
-                </ul>
-            </nav>
-    </header>
-<body>
-    
+{% load static %}
+{% include "header.html" %}
+<section class="school-details">
+    <div class="school-details-wrapper">
+        <h2>{{school.name}}</h2>
+        <span class="school-details__dc">{{school.district.name}} | {{school.county}}</span>
+        <div class="school-details__gap">
+            <h3>Title IX Gap: {{title_nine_gap}}%</h3>
+            <p>How is the gap calculated?</p>
+        </div>
+    </div>
+</section>
+    <h2><small> (most recent available year)</small></h2>
     <p>Showing Data From:</p>
     <p>2015-2016<t>2014-2015</t><t>2013-2014</t><t>2012-2013</t></p>
     <p>Enrollment</p>
@@ -25,9 +19,9 @@
         <p>*Pie chart goes here*</p><br>
         <p>{{opportunities_needed}} new opportunities for girls are needed to achieve equity.</p>    <br>
 <!-- this section is just for testing -->
-        <p>Num girls {{girls}} <t>Num boys {{boys}}</t></p><br>
-        <p>Num girl athletes {{girl_ath}} <t>Num boy athletes {{boy_ath}}</t></p><br>
-        <p>multiplier is {{multiplier}}</p><br>
+        <p>{{girls}} girls enrolled<t> {{boys}} boys enrolled</t></p><br>
+        <p>{{girl_ath}} girl athletes <t> {{boy_ath}} boy athletes</t></p><br>
+        <p>This is {{multiplier}} times the legal gap</p><br>
 <!-- -->
         <p>Potential additional athletic opportunities if cheerleading qualifies as a competitive sport for this school {{cheerleading_num1}} girls {{cheerleading_num2}} boys</p><br>
         <p>Calculations on FAIR:PLAY exlude cheerleading, which qualifies as a sport only under specific conditions.</p><br>
@@ -42,6 +36,4 @@
         <p>*graph goes here*</p>
         
     
-</body>
-
-</html>
+{% include "footer.html" %}

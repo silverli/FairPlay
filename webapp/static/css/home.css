@@ -1,40 +1,4 @@
 @import url('https://fonts.googleapis.com/css?family=Nunito');
-body {
-    font-family: 'Nunito', sans-serif;
-    color: #333;
-    margin:0;
-}
-header {
-    background-color:#41a2b4; 
-    padding:8px;
-    opacity:0.6;
-}
-nav ul{
-    padding-left:0;
-}
-nav ul li{
-    display:inline-block;
-    margin-right:20px;
-}
-nav ul li:last-child{
-    margin-right:0;
-}
-nav ul li a{
-    text-transform: uppercase;
-    color: #fff;
-    text-decoration: none;
-    transition:color 0.3s ease-in;
-    
-}
-nav ul li a:hover{
-    color: #ff7128;
-}
-
-
-main {
-    width:60%;
-    margin:0 auto;
-}
 h1 {
     text-align:center;
 }
@@ -43,12 +7,24 @@ h1 {
     padding-left:0;
 }
 .school li{
-    background-color: #e6e6e6;
+    background-color: #f0f0f0;
     padding:16px;
-    margin-bottom:16px; 
+    margin-bottom:16px;
+    text-align: left;
 }
-.school li h3{
+.school li:nth-child(odd) {
+    background-color: #41a2b4;
+    color: #FFF;
+}
+.school li:nth-child(odd) h3 a {
+    color: #FFF;
+}
+.school li h3 {
     margin-top:0;
+    margin-bottom: 0.5rem;
+}
+.school li h3 a {
+    color: #333;
 }
 
 .school__district, .school__county{
@@ -57,4 +33,24 @@ h1 {
 .school__district{
     margin-right:20px; 
 }
+.intro {
+    border-bottom: 1px solid #d3d3d3;
+    background-color: #f6f6f6;
+    color: #4e4e4e;
+    text-align: center;
+}
+.intro-wrapper {
+    max-width: 1200px;
+    margin: 0 auto;
+}
+.intro-wrapper p {
+    max-width: 750px;
+    margin: 0 auto;
+}
+.school-search {
+    text-align: center;
+}
+.school-search-container {
+    max-width: 800px;
+    margin: 0 auto;
 }
