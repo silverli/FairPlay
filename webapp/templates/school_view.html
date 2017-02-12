@@ -24,17 +24,37 @@
     </div>
 
 </section>
-        <p>{{opportunities_needed}} new opportunities for girls are needed to achieve equity.</p>    <br>
+
+<section class="school-details__totals">
+    <div class="school-details__total-enrollment">
+        <h3>Total Enrollment</h3>
+        <span>{{girls}} girls enrolled</span>
+        <span>{{boys}} boys enrolled</span>
+    </div>
+    <div class="school-details__total-athletes">
+        <h3>Athlete Enrollment</h3>
+        <span>{{girl_ath}} girl athletes</span>
+        <span>{{boy_ath}} boy athletes</span>
+    </div>
+</section>
+
+<section class="school-details__opportunities">
+    <div class="school-details__opportunities-wrapper">
+         <h3>{{opportunities_needed}} new opportunities for girls are needed to achieve equity.</h3>
+    </div>
+</section>
+
+<section class="school-details__state-gap">
+    <h3>How does my school stack up?</h3>
+    <p>Statewide Title IX Gap <t>{{ state_avg1.gap__avg|floatformat:"2" }}% {{ state_avg2.gap__avg|floatformat:"2" }}% {{ state_avg3.gap__avg|floatformat:"2" }}%</t></p><br>
+</section>
+
 <!-- this section is just for testing -->
-        <p>{{girls}} girls enrolled<t> {{boys}} boys enrolled</t></p><br>
-        <p>{{girl_ath}} girl athletes <t> {{boy_ath}} boy athletes</t></p><br>
 
 <!--
         <p>Potential additional athletic opportunities if cheerleading qualifies as a competitive sport for this school {{cheerleading_num1}} girls {{cheerleading_num2}} boys</p><br>
         <p>Calculations on FAIR:PLAY exlude cheerleading, which qualifies as a sport only under specific conditions.</p><br>
 -->
-        <p>How does my school stack up?</p>
-        <p>Statewide Title IX Gap <t>{{ state_avg1.gap__avg|floatformat:"2" }}% {{ state_avg2.gap__avg|floatformat:"2" }}% {{ state_avg3.gap__avg|floatformat:"2" }}%</t></p><br>
 <!--        <p>Mean for all {{highsc_avg}}</p>
         <p>Countywide Title IX Gap <t>*Countywide Title IX Gap*</t></p><br>
         <p>Mean for all *high schools*</p>
