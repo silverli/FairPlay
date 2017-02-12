@@ -1,5 +1,16 @@
 header {
-    background-color:rgba(65, 162, 180,0.67); 
+    background-color:rgba(65, 162, 180,0.67);
+    background-image: url("../img/hero.jpg");
+    height: 500px;
+    background-size: cover;
+    background-position: center;
+    position: relative;
+    background-repeat: no-repeat;
+}
+@media screen and (min-width: 1300px) {
+    header {
+        background-position: center -400px;
+    }
 }
 .header-wrapper {
     max-width: 1200px;

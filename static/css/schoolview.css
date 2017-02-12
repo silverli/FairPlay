@@ -1,7 +1,26 @@
 .school-details {
     background-color: #41a2b4;
+    color: #FFF;
 }
-.school-details-wrapper {
-    max-width: 1200px;
-    margin: 0 auto;
+.school-details:after {
+    content: "";
+    display: table;
+    clear: both;
+}
+.school-details__info {
+    display: inline-block;
+}
+.school-details__info h2 {
+    margin-top: 0;
+}
+.school-details__gap {
+    float: right;
+    display: inline-block;
+}
+.school-details__pie {
+    padding-top: 0;
+}
+.school-details__pie-years {
+    background-color: #d6d6d6;
+    font-weight: bold;
 }
