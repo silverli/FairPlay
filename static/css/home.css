@@ -1,6 +1,8 @@
 @import url('https://fonts.googleapis.com/css?family=Nunito');
 h1 {
-    text-align:center;
+   position: absolute;
+   bottom: 50px;
+   color: #FFF;
 }
 .school {
     list-style-type:none;
