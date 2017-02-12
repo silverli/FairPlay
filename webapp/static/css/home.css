@@ -51,7 +51,7 @@ h1 {
     max-width: 1200px;
     margin: 0 auto;
 }
-.intro-wrapper p {
+.intro-wrapper p{
     max-width: 750px;
     margin: 0 auto;
 }
@@ -61,4 +61,30 @@ h1 {
 .school-search-container {
     max-width: 800px;
     margin: 0 auto;
+}
+.opportunity{
+    border-bottom: 1px solid #d3d3d3;
+    background-color: #f6f6f6;
+    color: #4e4e4e;
+}
+.opportunity li{
+    margin-bottom:1rem; 
+}
+.opportunity-wrapper{
+    max-width: 750px;
+    margin: 0 auto;
+}
+.tab{
+    margin: 0;
+}
+.tab-header{
+    border-color: gray;
+    border-bottom-style: solid;
+    border-bottom-width: 1px;
+    border-top-style: solid;
+    border-top-width: 1px;
+    color: #41a2b4;
+}
+.tab-header p{
+    display:none;
 }
