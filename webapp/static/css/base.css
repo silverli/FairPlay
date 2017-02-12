@@ -12,6 +12,11 @@ a {
 section {
    padding: 2rem 1rem;
 }
+@media screen and (min-width: 700px) {
+    section {
+        padding: 2rem 0;
+    }   
+}
 form {
     position: relative;
 }
@@ -29,4 +34,9 @@ input[type=submit] {
     position: absolute;
     right: 0;
     top: 0;
+}
+
+.wrapper {
+    max-width: 1200px;
+    margin: 0 auto;
 }

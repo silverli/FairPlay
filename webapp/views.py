@@ -107,7 +107,7 @@ def school_view(request,schoolid):
     data_ge = GradeEnrollment.objects.filter(school = school, school_year=schoolyear)
     data_se = SportsEnrollment.objects.filter(school = school, school_year=schoolyear).exclude(girls=0,boys=0)
 
-    gap_list = [TitleNineGap.objects.get(school_year='2012-2013', school=school).gap, TitleNineGap.objects.get(school_year='2013-2014', school=school).gap, TitleNineGap.objects.get(school_year='2014-2015', school=school).gap]
+    gap_list = [round(TitleNineGap.objects.get(school_year='2012-2013', school = School.objects.get(composite_id = schoolid).composite_id).gap,2), round(TitleNineGap.objects.get(school_year='2013-2014', school = School.objects.get(composite_id = schoolid).composite_id).gap,2), round(TitleNineGap.objects.get(school_year='2014-2015', school = School.objects.get(composite_id = schoolid).composite_id).gap,2)]
 
 
     total_athletes=0
@@ -146,7 +146,13 @@ def school_view(request,schoolid):
 
     # calculate the statewide avg
     from django.db.models import Avg
-    state_avg_list = [TitleNineGap.objects.filter(school_year='2012-2013').aggregate(Avg('gap')), TitleNineGap.objects.filter(school_year='2013-2014').aggregate(Avg('gap')), TitleNineGap.objects.filter(school_year='2014-2015').aggregate(Avg('gap'))]
+    avg_gap_1213 = 0
+    avg_gap_1314 = 0
+    avg_gap_1415 = 0
+    avg_gap_1213 = TitleNineGap.objects.filter(school_year='2012-2013').aggregate(Avg('gap'))
+    avg_gap_1314 = TitleNineGap.objects.filter(school_year='2013-2014').aggregate(Avg('gap'))
+    avg_gap_1415 = TitleNineGap.objects.filter(school_year='2014-2015').aggregate(Avg('gap'))
+    state_avg_list = [avg_gap_1213, avg_gap_1314, avg_gap_1415]
 
     
     
@@ -161,7 +167,7 @@ def school_view(request,schoolid):
         "opportunities_needed":new_needed,
         "cheerleading_num1":5,
         "cheerleading_num2":7,
-        "state_avg":state_avg_list,
+        "state_avg":state_avg_list[1],
         "highsc_avg":19,
         "boys":total_boys,
         "girls":total_girls,
