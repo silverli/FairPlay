@@ -1,30 +1,16 @@
 {% load static %}
-<!DOCTYPE html>
-<html>
-    <head>
-        <title>FAIR:PLAY</title>
-        <link href="{% static "css/home.css" %}" rel="stylesheet">
-    </head>
-    <body>
-        <header>
-            <nav>
-                <a href="https://google.com" target="_blank">
-                    <img class="left" src="{% static "img/fairplay-logo-black.png" %}" width="300" height="68">
-                </a>
-                    <ul>
-                        <li><a href="#">Find School</a></li>
-                        <li><a href="#">Take Action</a></li>
-                        <li><a href="#">Donate</a></li>
-                    </ul>
-            </nav>
-        </header>
-<body>
-    <h2>School Name: {{school.name}}</h2>
-    <h2>School District: {{school.district.name}}</h2>
-    <h2>School County: {{school.county}}</h2>
-    <h2>Title IX Gap: {{title_nine_gap}}%</h2>
+{% include "header.html" %}
+<section class="school-details">
+    <div class="school-details-wrapper">
+        <h2>{{school.name}}</h2>
+        <span class="school-details__dc">{{school.district.name}} | {{school.county}}</span>
+        <div class="school-details__gap">
+            <h3>Title IX Gap: {{title_nine_gap}}%</h3>
+            <p>How is the gap calculated?</p>
+        </div>
+    </div>
+</section>
     <h2><small> (most recent available year)</small></h2>
-    <h2>How is the gap calculated?</h2> 
     <p>Showing Data From:</p>
     <p>2015-2016<t>2014-2015</t><t>2013-2014</t><t>2012-2013</t></p>
     <p>Enrollment</p>
@@ -50,6 +36,4 @@
         <p>*graph goes here*</p>
         
     
-</body>
-
-</html>
+{% include "footer.html" %}

@@ -4,8 +4,8 @@ from django.views.generic import TemplateView
 from django.shortcuts import render_to_response
 from django.http import HttpResponse
 from django.template import Context, Template
+from webapp.models import District, School, GradeEnrollment, SportsEnrollment, TitleNineGap
 
-from webapp.models import District, School, GradeEnrollment, SportsEnrollment
 
 def title_nine_calc(school, school_year = None):
     
@@ -24,7 +24,10 @@ def title_nine_calc(school, school_year = None):
         total += grade_level.boys + grade_level.girls
         girls += grade_level.girls
         
-    percent_girls_enrolled = (float(girls) / float(total))*100
+    try:
+        percent_girls_enrolled = (float(girls) / float(total))*100
+    except:
+        return False
 
     total_athletes, girl_athletes = 0, 0
     
@@ -32,7 +35,10 @@ def title_nine_calc(school, school_year = None):
         total_athletes += sport.girls + sport.boys
         girl_athletes += sport.girls
 
-    girl_athlete_percentage = (float(girl_athletes) / float(total_athletes))*100
+    try:
+        girl_athlete_percentage = (float(girl_athletes) / float(total_athletes))*100
+    except:
+        return False
     
     return percent_girls_enrolled - girl_athlete_percentage
 
@@ -40,7 +46,7 @@ def title_nine_calc(school, school_year = None):
 
 class HomePageView(TemplateView):
     def get(self, request, **kwargs):
-        return render(request, 'christians_test.html', context=None)
+        return render(request, 'index.html', context=None)
         
     def post(self, request, **kwargs):
         search, schools = None, None
@@ -50,7 +56,7 @@ class HomePageView(TemplateView):
         except:
             pass
     
-        return render(request, 'christians_test.html',{
+        return render(request, 'index.html',{
             "schools":schools,
             "search":search
         })
@@ -77,6 +83,26 @@ class HomePageView(TemplateView):
 
 # def index(request):
 #     return render_to_response('christians_test.html')
+
+def school_gaps():
+    year_one = "2012-2013"
+    year_two =  "2013-2014"
+    year_three = "2014-2015"
+
+    schools = School.objects.all()
+    
+    for school in schools:
+        gap1 = title_nine_calc(school, year_one)
+        gap2 = title_nine_calc(school, year_two)
+        gap3 = title_nine_calc(school, year_three)
+        
+        print gap1, gap2, gap3
+        
+        TitleNineGap.objects.create(school=school.composite_id, school_year=year_one, gap=gap1)
+        TitleNineGap.objects.create(school=school.composite_id, school_year=year_two, gap=gap2)
+        TitleNineGap.objects.create(school=school.composite_id, school_year=year_three, gap=gap3)
+
+
 
 def school_view(request,schoolid):
     school = School.objects.get(composite_id = schoolid)
