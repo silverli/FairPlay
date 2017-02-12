@@ -22,30 +22,23 @@
             <li>2012-2013</li>
         </ul>
     </div>
-    <div class="wrapper">
-        <p>Enrollment</p>
-        <p>*Pie chart goes here*</p>
-        <p>Athletic Opportunities</p>
-        <p>*Pie chart goes here*</p><br>
-    </div>
+
 </section>
         <p>{{opportunities_needed}} new opportunities for girls are needed to achieve equity.</p>    <br>
 <!-- this section is just for testing -->
         <p>{{girls}} girls enrolled<t> {{boys}} boys enrolled</t></p><br>
         <p>{{girl_ath}} girl athletes <t> {{boy_ath}} boy athletes</t></p><br>
-        <p>This is {{multiplier}} times the legal gap</p><br>
-<!-- -->
+
+<!--
         <p>Potential additional athletic opportunities if cheerleading qualifies as a competitive sport for this school {{cheerleading_num1}} girls {{cheerleading_num2}} boys</p><br>
         <p>Calculations on FAIR:PLAY exlude cheerleading, which qualifies as a sport only under specific conditions.</p><br>
+-->
         <p>How does my school stack up?</p>
         <p>Statewide Title IX Gap <t>{{ state_avg1.gap__avg|floatformat:"2" }}% {{ state_avg2.gap__avg|floatformat:"2" }}% {{ state_avg3.gap__avg|floatformat:"2" }}%</t></p><br>
-        <p>Mean for all {{highsc_avg}}</p>
+<!--        <p>Mean for all {{highsc_avg}}</p>
         <p>Countywide Title IX Gap <t>*Countywide Title IX Gap*</t></p><br>
         <p>Mean for all *high schools*</p>
         <p>School Name: {{school.name}} ranks *XX* out of *XXX* Pennsylvania *high schools* in providing equitable athletic opportunities, based on Title IX gap.</p>
-        
-        <p>School Name: {{school.name}} Over Time</p>
-        <p>*graph goes here*</p>
-        
+-->        
     
 {% include "footer.html" %}

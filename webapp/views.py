@@ -144,7 +144,7 @@ def school_view(request,schoolid):
     total_boys = float(total_boys)
     total_students = total_boys + total_girls
     proportion_girls = total_girls / total_students * 100
-    proportion_girls_athletes= girls_athletes / total_athletes * 100
+#    proportion_girls_athletes= girls_athletes / total_athletes * 100
     new_needed = total_girls / total_students * total_athletes - girls_athletes # number of opportunities needed to achieve equity
 
     # calculate the statewide avg
