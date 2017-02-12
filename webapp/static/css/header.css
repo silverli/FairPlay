@@ -6,6 +6,11 @@ header {
     margin: 0 auto;
     padding: 2rem 1rem;
 }
+@media screen and (min-width: 700px) {
+    .header-wrapper {
+        padding: 2rem 0;
+    }   
+}
 .header-wrapper:after {
     content: "";
     display: table;

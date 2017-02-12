@@ -9,6 +9,10 @@ a {
 * {
     box-sizing: border-box;
 }
+main {
+    /*max-width: 1200px;*/
+    /*margin: 0 auto;*/
+}
 section {
    padding: 2rem 1rem;
 }

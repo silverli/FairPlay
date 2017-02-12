@@ -1,8 +1,11 @@
 {% load static %}
 {% include "header.html" %}
-    <h2>School Name: {{school.name}}</h2>
-    <h2>School District: {{school.district.name}}</h2>
-    <h2>School County: {{school.county}}</h2>
+<section class="school-details">
+    <div class="school-details-wrapper">
+        <h2>{{school.name}}</h2>
+        <span class="school-details__dc">{{school.district.name}} | {{school.county}}</span>
+    </div>
+</section>
     <h2>Title IX Gap: {{title_nine_gap}}%</h2>
     <h2><small> (most recent available year)</small></h2>
     <h2>How is the gap calculated?</h2> 
