@@ -43,9 +43,13 @@ h1 {
     max-width: 1200px;
     margin: 0 auto;
 }
-.intro-wrapper p {
+.intro-wrapper p{
     max-width: 750px;
     margin: 0 auto;
+}
+.intro-wrapper ul{
+    text-align: left;
+    
 }
 .school-search {
     text-align: center;

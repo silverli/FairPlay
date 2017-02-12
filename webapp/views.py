@@ -55,7 +55,8 @@ class HomePageView(TemplateView):
             "search":search
         })
     
-    
+class TakeActionPageView(TemplateView):
+    template_name = "take_action.html"
     
         
 # def test_view(request):
