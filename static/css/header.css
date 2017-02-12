@@ -1,0 +1,14 @@
+header {
+    background-color:rgba(65, 162, 180,0.67); 
+    padding:8px;
+}
+nav {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 1rem;
+}
+nav ul{
+    padding-left:0;
+    text-align:right;
+    display:inline-block;
+}

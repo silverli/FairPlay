@@ -1,24 +1,5 @@
 {% load static %}
-<!DOCTYPE html>
-<html>
-    <head>
-        <title>FAIR:PLAY</title>
-        <link href="{% static "css/home.css" %}" rel="stylesheet">
-    </head>
-    <body>
-        <header>
-            <nav>
-                <a href="https://google.com" target="_blank">
-                    <img class="left" src="{% static "img/fairplay-logo-black.png" %}" width="300" height="68">
-                </a>
-                    <ul>
-                        <li><a href="#">Find School</a></li>
-                        <li><a href="#">Take Action</a></li>
-                        <li><a href="#">Donate</a></li>
-                    </ul>
-            </nav>
-        </header>
-<body>
+{% include "header.html" %}
     <h2>School Name: {{school.name}}</h2>
     <h2>School District: {{school.district.name}}</h2>
     <h2>School County: {{school.county}}</h2>
@@ -50,6 +31,4 @@
         <p>*graph goes here*</p>
         
     
-</body>
-
-</html>
+{% include "footer.html" %}

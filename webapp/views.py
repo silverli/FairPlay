@@ -40,7 +40,7 @@ def title_nine_calc(school, school_year = None):
 
 class HomePageView(TemplateView):
     def get(self, request, **kwargs):
-        return render(request, 'christians_test.html', context=None)
+        return render(request, 'index.html', context=None)
         
     def post(self, request, **kwargs):
         search, schools = None, None
@@ -50,7 +50,7 @@ class HomePageView(TemplateView):
         except:
             pass
     
-        return render(request, 'christians_test.html',{
+        return render(request, 'index.html',{
             "schools":schools,
             "search":search
         })

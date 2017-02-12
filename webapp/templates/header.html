@@ -3,18 +3,20 @@
 <html>
     <head>
         <title>FAIR:PLAY</title>
-        <link href="{% static "css/home.css" %}" rel="stylesheet">
+        <link href="{% static "css/app.css" %}" rel="stylesheet">
     </head>
     <body>
         <header>
-            <nav>
+            <div class="header-wrapper">
                 <a href="/" class="logo">
                     <img src="{% static "img/fairplay-logo-black.png" %}" width="300" height="68">
                 </a>
-                <ul>
-                    <li><a href="#">Find Schools</a></li>
-                    <li><a href="#">Take Action</a></li>
-                    <li><a href="#">Donate</a></li>
-                </ul>
-            </nav>
+                <nav>
+                    <ul>
+                        <li><a href="#">Find Schools</a></li>
+                        <li><a href="#">Take Action</a></li>
+                        <li><a href="#">Donate</a></li>
+                    </ul>
+                </nav>
+            </div>
         </header>
