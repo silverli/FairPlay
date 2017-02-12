@@ -107,7 +107,10 @@ def school_view(request,schoolid):
     data_ge = GradeEnrollment.objects.filter(school = school, school_year=schoolyear)
     data_se = SportsEnrollment.objects.filter(school = school, school_year=schoolyear).exclude(girls=0,boys=0)
 
-    gap_list = [round(TitleNineGap.objects.get(school_year='2012-2013', school = School.objects.get(composite_id = schoolid).composite_id).gap,2), round(TitleNineGap.objects.get(school_year='2013-2014', school = School.objects.get(composite_id = schoolid).composite_id).gap,2), round(TitleNineGap.objects.get(school_year='2014-2015', school = School.objects.get(composite_id = schoolid).composite_id).gap,2)]
+    gap1 = round(TitleNineGap.objects.get(school_year='2012-2013', school = School.objects.get(composite_id = schoolid).composite_id).gap,2)
+    gap2 = round(TitleNineGap.objects.get(school_year='2013-2014', school = School.objects.get(composite_id = schoolid).composite_id).gap,2)
+    gap3 = round(TitleNineGap.objects.get(school_year='2014-2015', school = School.objects.get(composite_id = schoolid).composite_id).gap,2)
+    gap_list = [gap1, gap2, gap3]
 
 
     total_athletes=0
@@ -161,17 +164,23 @@ def school_view(request,schoolid):
     girls_athletes = int(girls_athletes)
     boys_athletes = int(boys_athletes)
     new_needed = int(new_needed)
+
     
     return render_to_response('school_view.html',{
         "school":school,
         "opportunities_needed":new_needed,
         "cheerleading_num1":5,
         "cheerleading_num2":7,
-        "state_avg":state_avg_list[1],
+        "state_avg1":state_avg_list[0],
+        "state_avg2":state_avg_list[1],
+        "state_avg3":state_avg_list[2],
         "highsc_avg":19,
         "boys":total_boys,
         "girls":total_girls,
         "boy_ath":boys_athletes,
         "girl_ath":girls_athletes,
-        "title_nine_gap":gap_list
+        "title_nine_gap1":gap_list[0],
+        "title_nine_gap2":gap_list[1],
+        "title_nine_gap3":gap_list[2]
+        
     })

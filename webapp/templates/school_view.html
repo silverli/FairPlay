@@ -7,7 +7,7 @@
             <span class="school-details__dc">{{school.district.name}} | {{school.county}}</span>
         </div>
         <div class="school-details__gap">
-            <h3>Title IX Gap (2014 - 2015) <span>{{title_nine_gap}}%</span></h3>
+            <h3>Title IX Gap (2014 - 2015) <span>{{title_nine_gap1}}% {{title_nine_gap2}}% {{title_nine_gap3}}%</span></h3>
             <p>How is the gap calculated?</p>
         </div>
     </div>
@@ -38,7 +38,7 @@
         <p>Potential additional athletic opportunities if cheerleading qualifies as a competitive sport for this school {{cheerleading_num1}} girls {{cheerleading_num2}} boys</p><br>
         <p>Calculations on FAIR:PLAY exlude cheerleading, which qualifies as a sport only under specific conditions.</p><br>
         <p>How does my school stack up?</p>
-        <p>Statewide Title IX Gap <t>{{ state_avg|floatformat:"2" }}</t></p><br>
+        <p>Statewide Title IX Gap <t>{{ state_avg1.gap__avg|floatformat:"2" }}% {{ state_avg2.gap__avg|floatformat:"2" }}% {{ state_avg3.gap__avg|floatformat:"2" }}%</t></p><br>
         <p>Mean for all {{highsc_avg}}</p>
         <p>Countywide Title IX Gap <t>*Countywide Title IX Gap*</t></p><br>
         <p>Mean for all *high schools*</p>
