@@ -1,22 +1,34 @@
 {% load static %}
 {% include "header.html" %}
 <section class="school-details">
-    <div class="school-details-wrapper">
-        <h2>{{school.name}}</h2>
-        <span class="school-details__dc">{{school.district.name}} | {{school.county}}</span>
+    <div class="wrapper">
+        <div class="school-details__info">
+            <h2>{{school.name}}</h2>
+            <span class="school-details__dc">{{school.district.name}} | {{school.county}}</span>
+        </div>
         <div class="school-details__gap">
-            <h3>Title IX Gap: {{title_nine_gap}}%</h3>
+            <h3>Title IX Gap (2014 - 2015) <span>{{title_nine_gap}}%</span></h3>
             <p>How is the gap calculated?</p>
         </div>
     </div>
 </section>
-    <h2><small> (most recent available year)</small></h2>
-    <p>Showing Data From:</p>
-    <p>2015-2016<t>2014-2015</t><t>2013-2014</t><t>2012-2013</t></p>
-    <p>Enrollment</p>
-    <p>*Pie chart goes here*</p>
-    <p>Athletic Opportunities</p>
+<section class="school-details__pie">
+    <div class="school-details__pie-years">
+        <span>Showing Data From:</span>
+        <ul>
+            <li>2015-2016</li>
+            <li>2014-2015</li>
+            <li>2013-2014</li>
+            <li>2012-2013</li>
+        </ul>
+    </div>
+    <div class="wrapper">
+        <p>Enrollment</p>
+        <p>*Pie chart goes here*</p>
+        <p>Athletic Opportunities</p>
         <p>*Pie chart goes here*</p><br>
+    </div>
+</section>
         <p>{{opportunities_needed}} new opportunities for girls are needed to achieve equity.</p>    <br>
 <!-- this section is just for testing -->
         <p>{{girls}} girls enrolled<t> {{boys}} boys enrolled</t></p><br>
