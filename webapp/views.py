@@ -60,9 +60,6 @@ class HomePageView(TemplateView):
             "schools":schools,
             "search":search
         })
-    
-    
-    
         
 # def test_view(request):
 #     query, schools = None, None
@@ -110,11 +107,8 @@ def school_view(request,schoolid):
     data_ge = GradeEnrollment.objects.filter(school = school, school_year=schoolyear)
     data_se = SportsEnrollment.objects.filter(school = school, school_year=schoolyear).exclude(girls=0,boys=0)
 
+    gap_list = [TitleNineGap.objects.get(school_year='2012-2013', school=school).gap, TitleNineGap.objects.get(school_year='2013-2014', school=school).gap, TitleNineGap.objects.get(school_year='2014-2015', school=school).gap]
 
-    title_nine_gap = title_nine_calc(school)
-
-    if title_nine_gap:
-        title_nine_gap = round(title_nine_gap, 2)
 
     total_athletes=0
     boys_athletes=0
@@ -136,7 +130,6 @@ def school_view(request,schoolid):
     proportion_girls = 0
     proportion_girls_athletes = 0
     new_needed = 0
-    multiplier = 0
     total_athletes = float(total_athletes)
     proportion_girls = float(proportion_girls)
     proportion_girls_athletes = float(proportion_girls_athletes)
@@ -144,33 +137,35 @@ def school_view(request,schoolid):
     total_students = float(total_students)
     new_needed = float(new_needed)
     total_girls = float(total_girls)
-    multiplier = float(multiplier)
     total_students = float(total_students)
     total_boys = float(total_boys)
     total_students = total_boys + total_girls
     proportion_girls = total_girls / total_students * 100
     proportion_girls_athletes= girls_athletes / total_athletes * 100
     new_needed = total_girls / total_students * total_athletes - girls_athletes # number of opportunities needed to achieve equity
-    multiplier = title_nine_gap / 5 # i.e. your school is X times more than the legal gap
+
+    # calculate the statewide avg
+    from django.db.models import Avg
+    state_avg_list = [TitleNineGap.objects.filter(school_year='2012-2013').aggregate(Avg('gap')), TitleNineGap.objects.filter(school_year='2013-2014').aggregate(Avg('gap')), TitleNineGap.objects.filter(school_year='2014-2015').aggregate(Avg('gap'))]
+
+    
     
     total_boys = int(total_boys)
     total_girls = int(total_girls)
     girls_athletes = int(girls_athletes)
     boys_athletes = int(boys_athletes)
     new_needed = int(new_needed)
-    multiplier = round(multiplier, 1)
     
     return render_to_response('school_view.html',{
         "school":school,
         "opportunities_needed":new_needed,
         "cheerleading_num1":5,
         "cheerleading_num2":7,
-        "state_avg":15,
+        "state_avg":state_avg_list,
         "highsc_avg":19,
         "boys":total_boys,
         "girls":total_girls,
         "boy_ath":boys_athletes,
         "girl_ath":girls_athletes,
-        "multiplier":multiplier,
-        "title_nine_gap":title_nine_gap
+        "title_nine_gap":gap_list
     })
