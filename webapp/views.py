@@ -116,16 +116,25 @@ def school_gaps():
 
 def school_view(request,schoolid):
     school = School.objects.get(composite_id = schoolid)
+    theCounty = school.county;
     schoolyear="2014-2015"
     data_ge = GradeEnrollment.objects.filter(school = school, school_year=schoolyear)
     data_se = SportsEnrollment.objects.filter(school = school, school_year=schoolyear).exclude(girls=0,boys=0)
 
+    from django.db.models import Avg
+    
     gap1 = round(TitleNineGap.objects.get(school_year='2012-2013', school = School.objects.get(composite_id = schoolid).composite_id).gap,2)
     gap2 = round(TitleNineGap.objects.get(school_year='2013-2014', school = School.objects.get(composite_id = schoolid).composite_id).gap,2)
     gap3 = round(TitleNineGap.objects.get(school_year='2014-2015', school = School.objects.get(composite_id = schoolid).composite_id).gap,2)
     gap_list = [gap1, gap2, gap3]
-
-
+    
+    # trying out stupid stuff 
+    
+    # countygap = round(TitleNineGap.objects.filter(school_year='2012-2013', school = School.objects.filter(county = school.county).composite_id).aggregate(Avg('gap')))
+    # countygap = round(TitleNineGap.objects.filter(School.objects.filter(county = school.county)).aggregate(Avg('gap')),2)
+    # schools_in_county = School.objects.filter(county = school.county, school_year='2012-2013');
+    # TitleNineGap.objects.filter(schools_in_county)
+    
     total_athletes=0
     boys_athletes=0
     girls_athletes=0
@@ -161,7 +170,7 @@ def school_view(request,schoolid):
     new_needed = total_girls / total_students * total_athletes - girls_athletes # number of opportunities needed to achieve equity
 
     # calculate the statewide avg
-    from django.db.models import Avg
+    
     avg_gap_1213 = 0
     avg_gap_1314 = 0
     avg_gap_1415 = 0
@@ -194,6 +203,7 @@ def school_view(request,schoolid):
         "girl_ath":girls_athletes,
         "title_nine_gap1":gap_list[0],
         "title_nine_gap2":gap_list[1],
-        "title_nine_gap3":gap_list[2]
+        "title_nine_gap3":gap_list[2],
+        "county_gap":countygap
         
     })
