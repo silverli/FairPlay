@@ -1,39 +1,65 @@
 {% load static %}
 {% include "header.html" %}
 <section class="school-details">
-    <div class="school-details-wrapper">
-        <h2>{{school.name}}</h2>
-        <span class="school-details__dc">{{school.district.name}} | {{school.county}}</span>
+    <div class="wrapper">
+        <div class="school-details__info">
+            <h2>{{school.name}}</h2>
+            <span class="school-details__dc">{{school.district.name}} | {{school.county}}</span>
+        </div>
         <div class="school-details__gap">
-            <h3>Title IX Gap: {{title_nine_gap}}%</h3>
-            <p>How is the gap calculated?</p>
+            <h3>Title IX Gap <span>{{title_nine_gap1}}% {{title_nine_gap2}}% {{title_nine_gap3}}%</span></h3>
+            <p>How is the gap calculated?<br>
+                The Title IX gap is calculated by subtracting the percent<br> of female athletes from the percent of female students <br>enrolled. The difference is the Title IX gap.</p>
         </div>
     </div>
 </section>
-    <h2><small> (most recent available year)</small></h2>
-    <p>Showing Data From:</p>
-    <p>2015-2016<t>2014-2015</t><t>2013-2014</t><t>2012-2013</t></p>
-    <p>Enrollment</p>
-    <p>*Pie chart goes here*</p>
-    <p>Athletic Opportunities</p>
-        <p>*Pie chart goes here*</p><br>
-        <p>{{opportunities_needed}} new opportunities for girls are needed to achieve equity.</p>    <br>
+<section class="school-details__pie">
+    <div class="school-details__pie-years">
+        <span>Showing Data From:</span>
+        <ul>
+            <li>2014-2015</li>
+            <li>2013-2014</li>
+            <li>2012-2013</li>
+        </ul>
+    </div>
+
+</section>
+
+<section class="school-details__totals">
+    <div class="school-details__total-enrollment">
+        <h3>Total Enrollment</h3>
+        <span>{{girls}} girls enrolled</span>
+        <span>{{boys}} boys enrolled</span>
+    </div>
+    <div class="school-details__total-athletes">
+        <h3>Athlete Enrollment</h3>
+        <span>{{girl_ath}} girl athletes</span>
+        <span>{{boy_ath}} boy athletes</span>
+    </div>
+</section>
+
+<section class="school-details__opportunities">
+    <div class="school-details__opportunities-wrapper">
+         <h3>{{opportunities_needed}} new opportunities for girls are needed to achieve equity.</h3>
+    </div>
+</section>
+
+<section class="school-details__state-gap">
+    <h3>How does my school stack up?</h3>
+    <p>Statewide Title IX Gap <t>{{ state_avg1.gap__avg|floatformat:"2" }}% {{ state_avg2.gap__avg|floatformat:"2" }}% {{ state_avg3.gap__avg|floatformat:"2" }}%</t></p><br>
+</section>
+
+
 <!-- this section is just for testing -->
-        <p>{{girls}} girls enrolled<t> {{boys}} boys enrolled</t></p><br>
-        <p>{{girl_ath}} girl athletes <t> {{boy_ath}} boy athletes</t></p><br>
-        <p>This is {{multiplier}} times the legal gap</p><br>
-<!-- -->
+
+<!--
         <p>Potential additional athletic opportunities if cheerleading qualifies as a competitive sport for this school {{cheerleading_num1}} girls {{cheerleading_num2}} boys</p><br>
         <p>Calculations on FAIR:PLAY exlude cheerleading, which qualifies as a sport only under specific conditions.</p><br>
-        <p>How does my school stack up?</p>
-        <p>Statewide Title IX Gap <t>{{state_avg}}</t></p><br>
-        <p>Mean for all {{highsc_avg}}</p>
+-->
+<!--        <p>Mean for all {{highsc_avg}}</p>
         <p>Countywide Title IX Gap <t>*Countywide Title IX Gap*</t></p><br>
         <p>Mean for all *high schools*</p>
         <p>School Name: {{school.name}} ranks *XX* out of *XXX* Pennsylvania *high schools* in providing equitable athletic opportunities, based on Title IX gap.</p>
-        
-        <p>School Name: {{school.name}} Over Time</p>
-        <p>*graph goes here*</p>
-        
+-->        
     
 {% include "footer.html" %}
