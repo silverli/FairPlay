@@ -1,9 +1,11 @@
 document.addEventListener('DOMContentLoaded', function() {
     console.log("McBuckets");
 
-    var tabHeader = document.getElementsByClassName("tab-header")[0];
+    var tabHeader = document.getElementsByClassName("tab-header")[0],
+        listItem = document.getElementsByClassName("2012")[0];
     
-    tabHeader.addEventListener('click', function() {
+    listItem.addEventListener('click', function() {
       alert("It Works!");  
     }, false);
+    
 });

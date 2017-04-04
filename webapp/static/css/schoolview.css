@@ -15,7 +15,7 @@
 }
 .school-details__gap {
     float: right;
-    display: inline-block;
+    display: none;
 }
 .school-details__pie {
     padding-top: 0;

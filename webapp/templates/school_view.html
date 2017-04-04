@@ -7,7 +7,11 @@
             <span class="school-details__dc">{{school.district.name}} | {{school.county}}</span>
         </div>
         <div class="school-details__gap">
-            <h3>Title IX Gap <span>{{title_nine_gap1}}% {{title_nine_gap2}}% {{title_nine_gap3}}%</span></h3>
+           {% if girl_ath == 0 and boy_ath == 0 %}
+            <h3>Title IX Gap<br> <span>2012-2013: {{title_nine_gap1}}%<br>2013-2014: {{title_nine_gap2}}%<br>2014-2015: no data available</span></h3>
+            {% else %}
+            <h3>Title IX Gap<br> <span>2012-2013: {{title_nine_gap1}}%<br>2013-2014: {{title_nine_gap2}}%<br>2014-2015: {{title_nine_gap3}}%</span></h3>
+            {% endif %}
             <p>How is the gap calculated?<br>
                 The Title IX gap is calculated by subtracting the percent<br> of female athletes from the percent of female students <br>enrolled. The difference is the Title IX gap.</p>
         </div>
@@ -17,9 +21,9 @@
     <div class="school-details__pie-years">
         <span>Showing Data From:</span>
         <ul>
-            <li>2014-2015</li>
-            <li>2013-2014</li>
-            <li>2012-2013</li>
+            <li class="2014">2014-2015</li>
+            <li class="2013">2013-2014</li>
+            <li class="2012">2012-2013</li>
         </ul>
     </div>
 
