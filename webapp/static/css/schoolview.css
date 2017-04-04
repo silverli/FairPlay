@@ -19,8 +19,49 @@
 }
 .school-details__pie {
     padding-top: 0;
+    padding-bottom: 0;
 }
 .school-details__pie-years {
     background-color: #d6d6d6;
     font-weight: bold;
+}
+
+.school-details__totals {
+    max-width: 1100px;
+    margin: 0 auto;
+    display: flex;
+    flex: row;
+}
+.school-details__totals:after {
+    content: "";
+    display: table;
+    clear: both;
+}
+.school-details__opportunities {
+    background-color: #41a2b4;
+    color: #FFF;
+}
+.school-details__opportunities-wrapper {
+    max-width: 1100px;
+    margin: 0 auto;
+}
+.school-details__state-gap {
+    max-width: 1000px;
+    margin: 0 auto;
+}
+.school-details__state-gap h3 {
+    color: #ff7128;
+    font-style: italic;
+    text-align: center;
+}
+.school-details__total-enrollment {
+    width: 50%;
+    display: inline-block;
+}
+.school-details__total-athletes {
+    width: 50%;
+    display: inline-block;
+}
+.school-details__total-enrollment span, .school-details__total-athletes span {
+    display: block;
 }
