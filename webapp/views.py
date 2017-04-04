@@ -121,9 +121,9 @@ def school_gaps():
         
         print gap1, gap2, gap3
         
-        TitleNineGap.objects.create(school=school.composite_id, school_year=year_one, gap=gap1)
-        TitleNineGap.objects.create(school=school.composite_id, school_year=year_two, gap=gap2)
-        TitleNineGap.objects.create(school=school.composite_id, school_year=year_three, gap=gap3)
+        TitleNineGap.objects.create(school=school, school_year=year_one, gap=gap1)
+        TitleNineGap.objects.create(school=school, school_year=year_two, gap=gap2)
+        TitleNineGap.objects.create(school=school, school_year=year_three, gap=gap3)
 
 
 

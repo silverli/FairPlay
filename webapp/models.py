@@ -9,7 +9,7 @@ from django.db import models
 
 
 class District (models.Model):
-    id = models.PositiveIntegerField(primary_key=True)
+    id = models.IntegerField(primary_key=True)
     name = models.CharField(max_length=100)
 
     def __str__(self):
@@ -17,7 +17,7 @@ class District (models.Model):
 
 class School (models.Model):
     district = models.ForeignKey(District)
-    composite_id = models.IntegerField(primary_key=True)
+    composite_id = models.CharField(max_length=25)
     name = models.CharField(max_length=200)
     school_id = models.CharField(max_length=20)
     county = models.CharField(max_length=100)
@@ -52,6 +52,6 @@ class SportsEnrollment (models.Model):
         return '%s - %s - %s' % (self.school.name, self.grade_level, self.sport)
 
 class TitleNineGap (models.Model):
-    school = models.BigIntegerField()
+    school = models.ForeignKey(School)
     school_year = models.CharField(max_length=15)
     gap = models.FloatField(null=True)
