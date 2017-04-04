@@ -23,7 +23,9 @@ def title_nine_calc(school, school_year = None):
     for grade_level in enrollment:
         total += grade_level.boys + grade_level.girls
         girls += grade_level.girls
+        print "girls ", grade_level.girls, "boys ", grade_level.boys
         
+    print "total girls", girls, "total ", total
     try:
         percent_girls_enrolled = (float(girls) / float(total))*100
     except:
@@ -31,14 +33,20 @@ def title_nine_calc(school, school_year = None):
 
     total_athletes, girl_athletes = 0, 0
     
+    print "########### athletes ################"
     for sport in sports_enrollment:
         total_athletes += sport.girls + sport.boys
         girl_athletes += sport.girls
+        print "girls ", sport.girls, "boys ", sport.boys
+
+    print "total girls", girl_athletes, "total athletes", total_athletes
 
     try:
         girl_athlete_percentage = (float(girl_athletes) / float(total_athletes))*100
     except:
         return False
+    
+    print "%enrolled", percent_girls_enrolled, "%athlete", girl_athlete_percentage
     
     return percent_girls_enrolled - girl_athlete_percentage
 
