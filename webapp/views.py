@@ -5,7 +5,6 @@ from django.shortcuts import render_to_response
 from django.http import HttpResponse
 from django.template import Context, Template
 from webapp.models import District, School, GradeEnrollment, SportsEnrollment, TitleNineGap
-from django.db.models import Sum
 
 
 def title_nine_calc(school, school_year = None):
@@ -27,7 +26,6 @@ def title_nine_calc(school, school_year = None):
         print "girls ", grade_level.girls, "boys ", grade_level.boys
         
     print "total girls", girls, "total ", total
-
     try:
         percent_girls_enrolled = (float(girls) / float(total))*100
     except:
@@ -36,28 +34,17 @@ def title_nine_calc(school, school_year = None):
     total_athletes, girl_athletes = 0, 0
     
     print "########### athletes ################"
-    
-    
-    # for sport in sports_enrollment:
-    #     total_athletes += sport.girls + sport.boys
-    #     girl_athletes += sport.girls
-    #     print "girls ", sport.girls, "boys ", sport.boys
-    
-    girl_athletes = SportsEnrollment.objects.filter(school_year=school_year,school=school).aggregate(Sum('girls'))
-    boy_athletes = SportsEnrollment.objects.filter(school_year=school_year, school=school).aggregate(Sum('boys'))
-    
-    total_athletes = girl_athletes['girls__sum'] + boy_athletes['boys__sum']
-    
-    print girl_athletes, boy_athletes, total_athletes
-        
+    for sport in sports_enrollment:
+        total_athletes += sport.girls + sport.boys
+        girl_athletes += sport.girls
+        print "girls ", sport.girls, "boys ", sport.boys
+
     print "total girls", girl_athletes, "total athletes", total_athletes
 
     try:
         girl_athlete_percentage = (float(girl_athletes) / float(total_athletes))*100
     except:
         return False
-        
-    print "%enrolled", percent_girls_enrolled, "%athlete", girl_athlete_percentage
     
     print "%enrolled", percent_girls_enrolled, "%athlete", girl_athlete_percentage
     
@@ -108,6 +95,19 @@ class TakeActionPageView(TemplateView):
 #     return render_to_response('christians_test.html')
 
 def school_gaps():
+    year_one = "2012-2013"
+    year_two =  "2013-2014"
+    year_three = "2014-2015"
+
+    schools = School.objects.all()
+    
+    for school in schools:
+        gap1 = title_nine_calc(school, year_one)
+        gap2 = title_nine_calc(school, year_two)
+        gap3 = title_nine_calc(school, year_three)
+        
+        print gap1, gap2, gap3
+        
     year_one = "2012-2013"
     year_two =  "2013-2014"
     year_three = "2014-2015"
