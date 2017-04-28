@@ -104,3 +104,6 @@ h1 {
     padding: 1rem 2rem;
     background-color: rgba(65, 162, 180, 0.3);
 }
+.accordion-header p.accordion-showing {
+    display: block;
+}
