@@ -4,7 +4,7 @@ from django.views.generic import TemplateView
 from django.shortcuts import render_to_response
 from django.http import HttpResponse
 from django.template import Context, Template
-from webapp.models import District, School, GradeEnrollment, SportsEnrollment, TitleNineGap
+from webapp.models import District, NewSchool, GradeEnrollment, SportsEnrollment, TitleNineGap
 from django.db.models import Avg
 
 def title_nine_calc(school, school_year = None):
@@ -12,8 +12,8 @@ def title_nine_calc(school, school_year = None):
     if(not school_year):
         school_year = GradeEnrollment.objects.order_by('school_year').last().school_year
     
-    enrollment = GradeEnrollment.objects.filter(school=school, school_year=school_year)
-    sports_enrollment = SportsEnrollment.objects.filter(school=school, school_year=school_year).exclude(girls=0, boys=0)
+    enrollment = GradeEnrollment.objects.filter(real_school=school, school_year=school_year)
+    sports_enrollment = SportsEnrollment.objects.filter(real_school=school, school_year=school_year).exclude(girls=0, boys=0)
     
     if(not sports_enrollment):
         return False
@@ -60,7 +60,7 @@ class HomePageView(TemplateView):
         search, schools = None, None
         try:
             search = request.POST.get('search')
-            schools = School.objects.filter(name__istartswith=search)
+            schools = NewSchool.objects.filter(name__istartswith=search)
         except:
             pass
     
@@ -99,7 +99,7 @@ def school_gaps():
     year_two =  "2013-2014"
     year_three = "2014-2015"
 
-    schools = School.objects.all()
+    schools = NewSchool.objects.all()
     
     for school in schools:
         gap1 = title_nine_calc(school, year_one)
@@ -111,8 +111,6 @@ def school_gaps():
     year_one = "2012-2013"
     year_two =  "2013-2014"
     year_three = "2014-2015"
-
-    schools = School.objects.all()
     
     for school in schools:
         gap1 = title_nine_calc(school, year_one)
@@ -121,21 +119,21 @@ def school_gaps():
         
         print gap1, gap2, gap3
         
-        TitleNineGap.objects.create(school=school, school_year=year_one, gap=gap1)
-        TitleNineGap.objects.create(school=school, school_year=year_two, gap=gap2)
-        TitleNineGap.objects.create(school=school, school_year=year_three, gap=gap3)
+        TitleNineGap.objects.create(real_school=school, school_year=year_one, gap=gap1)
+        TitleNineGap.objects.create(real_school=school, school_year=year_two, gap=gap2)
+        TitleNineGap.objects.create(real_school=school, school_year=year_three, gap=gap3)
 
 
 
 def school_view(request,schoolid):
-    school = School.objects.get(composite_id = schoolid)
+    school = NewSchool.objects.get(composite_id = schoolid)
     schoolyear="2014-2015"
-    data_ge = GradeEnrollment.objects.filter(school = school, school_year=schoolyear)
-    data_se = SportsEnrollment.objects.filter(school = school, school_year=schoolyear).exclude(girls=0,boys=0)
+    data_ge = GradeEnrollment.objects.filter(real_school = school, school_year=schoolyear)
+    data_se = SportsEnrollment.objects.filter(real_school = school, school_year=schoolyear).exclude(girls=0,boys=0)
 
-    gap1 = round(TitleNineGap.objects.get(school_year='2012-2013', school=school).gap,2)
-    gap2 = round(TitleNineGap.objects.get(school_year='2013-2014', school=school).gap,2)
-    gap3 = round(TitleNineGap.objects.get(school_year='2014-2015', school=school).gap,2)
+    gap1 = round(TitleNineGap.objects.get(school_year='2012-2013', real_school=school).gap,2)
+    gap2 = round(TitleNineGap.objects.get(school_year='2013-2014', real_school=school).gap,2)
+    gap3 = round(TitleNineGap.objects.get(school_year='2014-2015', real_school=school).gap,2)
     gap_list = [gap1, gap2, gap3]
 
 
