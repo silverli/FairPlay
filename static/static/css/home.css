@@ -57,10 +57,14 @@ h1 {
 }
 .school-search {
     text-align: center;
+    padding-bottom: 3rem;
 }
 .school-search-container {
     max-width: 800px;
     margin: 0 auto;
+}
+.school-search-container h2 {
+    margin-top: 0;
 }
 .opportunity{
     border-bottom: 1px solid #d3d3d3;
@@ -74,17 +78,32 @@ h1 {
     max-width: 750px;
     margin: 0 auto;
 }
-.tab{
+.accordion{
     margin: 0;
+    max-width: 1100px;
+    margin: 0 auto 3rem;
+    padding: 0 1.2rem;
 }
-.tab-header{
-    border-color: red;
-    border-bottom-style: solid;
-    border-bottom-width: 1px;
-    border-top-style: solid;
-    border-top-width: 1px;
-    color: #41a2b4;
+.accordion-header{
+    margin-bottom: 1rem;
 }
-.tab-header p{
+.accordion-header h2 {
+    margin: 0;
+    color: #FFF;
+    background-color: #41a2b4;
+    padding: 1rem 2rem;
+    transition: background-color 0.3s ease-in-out;
+}
+.accordion-header h2:hover {
+    cursor: pointer;
+    background-color: #317c8a;
+}
+.accordion-header p{
     display:none;
+    margin: 0;
+    padding: 1rem 2rem;
+    background-color: rgba(65, 162, 180, 0.3);
+}
+.accordion-header p.accordion-showing {
+    display: block;
 }
