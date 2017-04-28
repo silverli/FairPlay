@@ -1,9 +1,13 @@
-document.addEventListener('DOMContentLoaded', function() {
-    console.log("McBuckets");
-
-    var tabHeader = document.getElementsByClassName("tab-header")[0];
-    
-    tabHeader.addEventListener('click', function() {
-      alert("It Works!");  
-    }, false);
+$( document ).ready(function() {
+    $( function() {
+        $( "#tabs" ).tabs();
+    });
+          
+          
+    console.log( "ready! lindsay" );
+    $(".school-name").on('click', function(){
+        console.log($(this).text());
+    });
+    //kjdlaksdj
+    //in webapp folder
 });

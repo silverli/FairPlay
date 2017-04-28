@@ -1,0 +1,90 @@
+@import url('https://fonts.googleapis.com/css?family=Nunito');
+h1 {
+   position: absolute;
+   bottom: 50px;
+   color: #FFF;
+   text-shadow: 1px 1px 2px black;
+}
+@media screen and (min-width: 800px) {
+    h1 {
+        width: 450px;
+    }
+}
+.school {
+    list-style-type:none;
+    padding-left:0;
+}
+.school li{
+    background-color: #f0f0f0;
+    padding:16px;
+    margin-bottom:16px;
+    text-align: left;
+}
+.school li:nth-child(odd) {
+    background-color: #41a2b4;
+    color: #FFF;
+}
+.school li:nth-child(odd) h3 a {
+    color: #FFF;
+}
+.school li h3 {
+    margin-top:0;
+    margin-bottom: 0.5rem;
+}
+.school li h3 a {
+    color: #333;
+}
+
+.school__district, .school__county{
+    font-size:14px; 
+}
+.school__district{
+    margin-right:20px; 
+}
+.intro {
+    border-bottom: 1px solid #d3d3d3;
+    background-color: #f6f6f6;
+    color: #4e4e4e;
+    text-align: center;
+}
+.intro-wrapper {
+    max-width: 1200px;
+    margin: 0 auto;
+}
+.intro-wrapper p{
+    max-width: 750px;
+    margin: 0 auto;
+}
+.school-search {
+    text-align: center;
+}
+.school-search-container {
+    max-width: 800px;
+    margin: 0 auto;
+}
+.opportunity{
+    border-bottom: 1px solid #d3d3d3;
+    background-color: #f6f6f6;
+    color: #4e4e4e;
+}
+.opportunity li{
+    margin-bottom:1rem; 
+}
+.opportunity-wrapper{
+    max-width: 750px;
+    margin: 0 auto;
+}
+.tab{
+    margin: 0;
+}
+.tab-header{
+    border-color: gray;
+    border-bottom-style: solid;
+    border-bottom-width: 1px;
+    border-top-style: solid;
+    border-top-width: 1px;
+    color: #41a2b4;
+}
+.tab-header p{
+    display:none;
+}

@@ -1,0 +1,50 @@
+header {
+    background-color:rgba(65, 162, 180,0.67);
+    background-image: url("../img/hero.jpg");
+    height: 500px;
+    background-size: cover;
+    background-position: center;
+    position: relative;
+    background-repeat: no-repeat;
+}
+.header-wrapper {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 2rem 1rem;
+}
+.header-wrapper:after {
+    content: "";
+    display: table;
+    clear: both;
+}
+nav {
+    float: right;
+}
+nav ul{
+    padding-left:0;
+    text-align:right;
+    display:inline-block;
+}
+nav ul li{
+    display:inline-block;
+    margin-right:20px;
+}
+nav ul li:last-child{
+    margin-right:0;
+}
+nav ul li a{
+    text-transform: uppercase;
+    color: #000;
+    text-decoration: none;
+    transition:color 0.3s ease-in;
+    vertical-align:top;
+    text-align:right;
+    
+}
+nav ul li a:hover{
+    color: #FFF;
+}
+
+.logo {
+    display: inline-block;
+}

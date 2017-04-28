@@ -1,0 +1,9 @@
+footer {
+    background-color: #ff7128;
+    color: #FFF;
+    padding: 16px;
+}
+.footer-wrapper {
+    max-width: 1200px;
+    margin: 0 auto;
+}
