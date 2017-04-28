@@ -1,7 +1,6 @@
 .school-details {
     background-color: #41a2b4;
     color: #FFF;
-    border-color: red;
 }
 .school-details:after {
     content: "";
@@ -10,23 +9,50 @@
 }
 .school-details__info {
     display: inline-block;
+    padding: 0 2rem;
 }
 .school-details__info h2 {
     margin-top: 0;
 }
-.school-details__gap {
-    float: right;
-    display: inline-block;
+.school-details__gap h4 {
+    font-size: 18.7px;
 }
-.school-details__pie {
-    padding-top: 0;
-    padding-bottom: 0;
-}
-.school-details__pie-years {
-    background-color: #d6d6d6;
+
+.school-details__state-gap {
+    font-size: 18.72px;
     font-weight: bold;
 }
 
+.school-details__pie-years h2 {
+    display: block;
+    width: 100%;
+    max-width: 1100px;
+    margin: 0 auto;
+    padding-left: 1.2rem;
+    margin-bottom: 2rem;
+}
+
+.school-details__pie-years ul {
+    display: block;
+    width: 100%;
+    list-style-type: none;
+    margin-bottom: 0;
+    padding: 0 0 0 1.2rem;
+}
+.school-details__pie-years li {
+    display: inline-block;
+    border-radius: 4px 4px 0 0;
+    background-color: #41a2b4;
+    color: #FFF;
+}
+.school-details__pie-years li a {
+    color: #FFF;
+    padding: 1rem 2rem;
+    display: inline-block;
+}
+.school-details__pie-years li.ui-state-active {
+    background-color: #ff7128;
+}
 .school-details__totals {
     max-width: 1100px;
     margin: 0 auto;
@@ -46,14 +72,9 @@
     max-width: 1100px;
     margin: 0 auto;
 }
-.school-details__state-gap {
-    max-width: 1000px;
-    margin: 0 auto;
-}
 .school-details__state-gap h3 {
     color: #ff7128;
     font-style: italic;
-    text-align: center;
 }
 .school-details__total-enrollment {
     width: 50%;
@@ -65,4 +86,22 @@
 }
 .school-details__total-enrollment span, .school-details__total-athletes span {
     display: block;
+}
+
+#tabs .tab-detail {
+    background-color: rgba(65, 162, 180, 0.33);
+    padding: 0 1.5rem;
+}
+
+#tabs .tab-detail h2 {
+    text-decoration: underline;
+}
+
+#tabs .tab-detail section, .school-details__pie-years ul {
+    max-width: 1100px;
+    margin: 0 auto;
+}
+
+#tabs .tab-detail section {
+    padding: 1rem 0 0.5rem 0;
 }

@@ -3,6 +3,12 @@ h1 {
    position: absolute;
    bottom: 50px;
    color: #FFF;
+   text-shadow: 1px 1px 2px black;
+}
+@media screen and (min-width: 800px) {
+    h1 {
+        width: 450px;
+    }
 }
 .school {
     list-style-type:none;
@@ -45,14 +51,62 @@ h1 {
     max-width: 1200px;
     margin: 0 auto;
 }
-.intro-wrapper p {
+.intro-wrapper p{
     max-width: 750px;
     margin: 0 auto;
 }
 .school-search {
     text-align: center;
+    padding-bottom: 3rem;
 }
 .school-search-container {
     max-width: 800px;
     margin: 0 auto;
+}
+.school-search-container h2 {
+    margin-top: 0;
+}
+.school-search-container form {
+    margin-bottom: 0.8rem;
+}
+.opportunity{
+    border-bottom: 1px solid #d3d3d3;
+    background-color: #f6f6f6;
+    color: #4e4e4e;
+}
+.opportunity li{
+    margin-bottom:1rem; 
+}
+.opportunity-wrapper{
+    max-width: 750px;
+    margin: 0 auto;
+}
+.accordion{
+    margin: 0;
+    max-width: 1100px;
+    margin: 0 auto 3rem;
+    padding: 0 1.2rem;
+}
+.accordion-header{
+    margin-bottom: 1rem;
+}
+.accordion-header h2 {
+    margin: 0;
+    color: #FFF;
+    background-color: #41a2b4;
+    padding: 1rem 2rem;
+    transition: background-color 0.3s ease-in-out;
+}
+.accordion-header h2:hover {
+    cursor: pointer;
+    background-color: #317c8a;
+}
+.accordion-header p{
+    display:none;
+    margin: 0;
+    padding: 1rem 2rem;
+    background-color: rgba(65, 162, 180, 0.3);
+}
+.accordion-header p.accordion-showing {
+    display: block;
 }
