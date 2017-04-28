@@ -78,7 +78,7 @@ h1 {
     margin: 0;
 }
 .tab-header{
-    border-color: gray;
+    border-color: red;
     border-bottom-style: solid;
     border-bottom-width: 1px;
     border-top-style: solid;
