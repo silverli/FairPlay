@@ -66,6 +66,9 @@ h1 {
 .school-search-container h2 {
     margin-top: 0;
 }
+.school-search-container form {
+    margin-bottom: 0.8rem;
+}
 .opportunity{
     border-bottom: 1px solid #d3d3d3;
     background-color: #f6f6f6;
