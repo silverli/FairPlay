@@ -50,7 +50,8 @@
         
         <section class="school-details__state-gap">
             <h3>How does my school stack up?</h3>
-            <p>Statewide Title IX Gap: <t>{{ state_avg1.gap__avg|floatformat:"2" }}%</t></p><br>
+            <p>Statewide Title IX Gap: <t>{{ state_avg1.gap__avg|floatformat:"2" }}%</t></p>
+            <p>{{school.county}} Countywide Title IX Gap: <t>{{ county_avg1.gap__avg|floatformat:"2" }}%</t></p><br>
         </section>
     </div>
     
@@ -72,7 +73,8 @@
         
         <section class="school-details__state-gap">
             <h3>How does my school stack up?</h3>
-            <p>Statewide Title IX Gap: <t>{{ state_avg2.gap__avg|floatformat:"2" }}%</t></p><br>
+            <p>Statewide Title IX Gap: <t>{{ state_avg2.gap__avg|floatformat:"2" }}%</t></p>
+            <p>{{school.county}} Countywide Title IX Gap: <t>{{ county_avg2.gap__avg|floatformat:"2" }}%</t></p><br>
         </section>
     </div>
     
@@ -95,7 +97,8 @@
         
         <section class="school-details__state-gap">
             <h3>How does my school stack up?</h3>
-            <p>Statewide Title IX Gap: <t>{{ state_avg3.gap__avg|floatformat:"2" }}%</t></p><br>
+            <p>Statewide Title IX Gap: <t>{{ state_avg3.gap__avg|floatformat:"2" }}%</t></p>
+            <p>{{school.county}} Countywide Title IX Gap: <t>{{ county_avg3.gap__avg|floatformat:"2" }}%</t></p><br>
         </section>
     </div>
 </div>

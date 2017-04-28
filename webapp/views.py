@@ -181,7 +181,13 @@ def school_view(request,schoolid):
     avg_gap_1415 = TitleNineGap.objects.filter(school_year='2014-2015').aggregate(Avg('gap'))
     state_avg_list = [avg_gap_1213, avg_gap_1314, avg_gap_1415]
 
-    
+    avg_county_gap_1213 = 0
+    avg_county_gap_1314 = 0
+    avg_county_gap_1415 = 0
+    avg_county_gap_1213 = TitleNineGap.objects.filter(school_year='2012-2013',real_school__county=school.county).aggregate(Avg('gap'))
+    avg_county_gap_1314 = TitleNineGap.objects.filter(school_year='2013-2014',real_school__county=school.county).aggregate(Avg('gap'))
+    avg_county_gap_1415 = TitleNineGap.objects.filter(school_year='2014-2015',real_school__county=school.county).aggregate(Avg('gap'))
+    county_avg_list = [avg_county_gap_1213, avg_county_gap_1314, avg_county_gap_1415]
     
     total_boys = int(total_boys)
     total_girls = int(total_girls)
@@ -198,7 +204,10 @@ def school_view(request,schoolid):
         "state_avg1":state_avg_list[0],
         "state_avg2":state_avg_list[1],
         "state_avg3":state_avg_list[2],
-        "highsc_avg":19,
+        "county_avg1":county_avg_list[0],
+        "county_avg2":county_avg_list[1],
+        "county_avg3":county_avg_list[2],
+        # "highsc_avg":19,
         "boys":total_boys,
         "girls":total_girls,
         "boy_ath":boys_athletes,
