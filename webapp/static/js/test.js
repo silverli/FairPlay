@@ -1,13 +1,13 @@
 $( document ).ready(function() {
+    console.log('working');
+    //adds functionality from jquery ui for tabs on school view page
     $( function() {
         $( "#tabs" ).tabs();
     });
           
-          
-    console.log( "ready! lindsay" );
-    $(".school-name").on('click', function(){
-        console.log($(this).text());
-    });
-    //kjdlaksdj
-    //in webapp folder
+    $(".accordion-header h2").on('click', function() {
+        console.log('did it');
+        $(this).siblings('p').toggleClass('accordion-showing');
+    });     
+    
 });
