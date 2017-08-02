@@ -101,16 +101,6 @@ def school_gaps():
 
     schools = NewSchool.objects.all()
     
-    for school in schools:
-        gap1 = title_nine_calc(school, year_one)
-        gap2 = title_nine_calc(school, year_two)
-        gap3 = title_nine_calc(school, year_three)
-        
-        print gap1, gap2, gap3
-        
-    year_one = "2012-2013"
-    year_two =  "2013-2014"
-    year_three = "2014-2015"
     
     for school in schools:
         gap1 = title_nine_calc(school, year_one)
