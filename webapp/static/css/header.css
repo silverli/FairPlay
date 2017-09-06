@@ -7,18 +7,26 @@ header {
     position: relative;
     background-repeat: no-repeat;
 }
-.header-wrapper {
+
+header h1 {
+    padding-left: 1rem;
+}
+.nav {
+    background-color: #CDDA77;
+}
+.nav-wrapper {
     max-width: 1200px;
     margin: 0 auto;
-    padding: 2rem 1rem;
+    padding: 0.8rem 1rem;
 }
-.header-wrapper:after {
+.nav-wrapper:after {
     content: "";
     display: table;
     clear: both;
 }
 nav {
     float: right;
+    padding-right: 34px;
 }
 nav ul{
     padding-left:0;
@@ -41,10 +49,27 @@ nav ul li a{
     text-align:right;
     
 }
-nav ul li a:hover{
-    color: #FFF;
+nav ul li a:hover, nav ul li a:focus {
+    color: #A71B2D;
 }
 
 .logo {
-    display: inline-block;
+    display: block;
+}
+
+.logo img {
+    width: 100%;
+}
+
+@media only screen and (min-width: 561px) {
+    nav {
+        padding-right: initial;
+    }
+    .logo {
+        display: inline-block;
+    }
+    .logo img {
+        width: 300px;
+        height: 68px;
+    }
 }

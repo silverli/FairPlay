@@ -1,5 +1,5 @@
 .school-details {
-    background-color: #41a2b4;
+    background-color: #6BA2B9;
     color: #FFF;
 }
 .school-details:after {
@@ -42,7 +42,7 @@
 .school-details__pie-years li {
     display: inline-block;
     border-radius: 4px 4px 0 0;
-    background-color: #41a2b4;
+    background-color: #6FA4B7;
     color: #FFF;
 }
 .school-details__pie-years li a {
@@ -65,7 +65,7 @@
     clear: both;
 }
 .school-details__opportunities {
-    background-color: #41a2b4;
+    background-color: #6FA4B7;
     color: #FFF;
 }
 .school-details__opportunities-wrapper {
@@ -89,7 +89,7 @@
 }
 
 #tabs .tab-detail {
-    background-color: rgba(65, 162, 180, 0.33);
+    background-color: rgba(107, 162, 186, 0.33);
     padding: 0 1.5rem;
 }
 

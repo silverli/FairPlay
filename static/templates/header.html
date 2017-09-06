@@ -10,17 +10,19 @@
         <meta name="viewport" content="initial-scale=1, maximum-scale=1">
     </head>
     <body>
+        <div class="nav">
+            <div class="nav-wrapper">
+            <a href="/" class="logo">
+                <img src="{% static "img/fairplay-logo-color.png" %}">
+            </a>
+            <nav>
+                <ul>
+                    <li><a href="/take_action" class="red bold">Take Action</a></li>
+                    <li><a href="/donate" class="red bold">Donate</a></li>
+                </ul>
+            </nav>
+        </div>
+        </div>
         <header>
-            <div class="header-wrapper">
-                <a href="/" class="logo">
-                    <img src="{% static "img/fairplay-logo-black.png" %}" width="300" height="68">
-                </a>
-                <nav>
-                    <ul>
-                        <li><a href="/take_action">Take Action</a></li>
-                        <li><a href="/donate">Donate</a></li>
-                    </ul>
-                </nav>
-                <h1>Pennsylvania schools are short changing female athletes.</h1>
-            </div>
+            <h1>Pennsylvania schools are short changing female athletes.</h1>
         </header>
