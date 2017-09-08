@@ -12,6 +12,18 @@ def titleix_zero_remover():
     nonreporters = NewSchool.objects.all().exclude(id__in=reporters)
     TitleNineGap.objects.filter(real_school_id__in=nonreporters).update(gap=None)
 
+    reporters = SportsEnrollment.objects.filter(school_year='2012-2013').exclude(girls=0,boys=0).distinct('real_school_id').values_list('real_school_id',flat=True)
+    nonreporters = NewSchool.objects.all().exclude(id__in=reporters)
+    TitleNineGap.objects.filter(real_school_id__in=nonreporters,school_year='2012-2013').update(gap=None)
+
+    reporters = SportsEnrollment.objects.filter(school_year='2013-2014').exclude(girls=0,boys=0).distinct('real_school_id').values_list('real_school_id',flat=True)
+    nonreporters = NewSchool.objects.all().exclude(id__in=reporters)
+    TitleNineGap.objects.filter(real_school_id__in=nonreporters,school_year='2013-2014').update(gap=None)
+    
+    reporters = SportsEnrollment.objects.filter(school_year='2014-2015').exclude(girls=0,boys=0).distinct('real_school_id').values_list('real_school_id',flat=True)
+    nonreporters = NewSchool.objects.all().exclude(id__in=reporters)
+    TitleNineGap.objects.filter(real_school_id__in=nonreporters,school_year='2014-2015').update(gap=None)
+
 def title_nine_calc(school, school_year = None):
     
     if(not school_year):
