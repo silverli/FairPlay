@@ -23,7 +23,7 @@ BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 SECRET_KEY = 'kcuh82y65x%m)^us!ozu64#e3rl*sq#92n0r(l^6me88#=(!q%'
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = True
+DEBUG = False
 
 ALLOWED_HOSTS = ["35.185.58.141","fairplayhackathon-maxgravity.c9users.io", "fairplay-silverli.c9users.io", "lindsay-fair-play-hackathon-silverli.c9users.io", "hackathon-ftw-mcbuckets1.c9users.io", "jamie-fairplay-klousnitzer.c9users.io", "localhost", "kalene-fairplay-kalenenc.c9users.io", "fair-play-hackathon-anastasialanz.c9users.io", "fairplayhackathon2-kellyrlarson.c9users.io"]
 
