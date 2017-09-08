@@ -36,9 +36,10 @@
         <section>
             <h2>2014-2015 Statistics</h2>
             <div class="school-details__gap">
-                <h3>Title IX Gap: <span>{{title_nine_gap3}}%</span></h3>
+                <h3>Title IX Gap: <span>{% if title_nine_gap3 is not None %}{{title_nine_gap3}}%{% else %}No reported data{%endif %}</span></h3>
                 <h4>How is the gap calculated?</h4>
                 <p>The Title IX gap is calculated by subtracting the percent of female athletes from the percent of female students enrolled. The difference is the Title IX gap. <strong>A double-digit gap strongly suggests that the school's athletic program is not in compliance with Title IX.</strong></p>
+                <p>If the Title IX gap is "No reported data," this means that 0 girl and 0 boy athletes were reported that year.</p>
             </div>
         </section>
         
@@ -59,9 +60,10 @@
         <section>
             <h2>2013-2014 Statistics</h2>
             <div class="school-details__gap">
-                <h3>Title IX Gap: <span>{{title_nine_gap2}}%</span></h3>
+                <h3>Title IX Gap: <span>{% if title_nine_gap2 is not None %}{{title_nine_gap2}}%{% else %}No reported data{%endif %}</span></h3>
                 <h4>How is the gap calculated?</h4>
-                <p>The Title IX gap is calculated by subtracting the percent of female athletes from the percent of female students enrolled. The difference is the Title IX gap.</p>
+                <p>The Title IX gap is calculated by subtracting the percent of female athletes from the percent of female students enrolled. The difference is the Title IX gap. <strong>A double-digit gap strongly suggests that the school's athletic program is not in compliance with Title IX.</strong></p>
+                <p>If the Title IX gap is "No reported data," this means that 0 girl and 0 boy athletes were reported that year.</p>
             </div>
         </section>
         
@@ -82,9 +84,10 @@
         <section>
             <h2>2012-2013 Statistics</h2>
             <div class="school-details__gap">
-                <h3>Title IX Gap: <span>{{title_nine_gap1}}%</span></h3>
+                <h3>Title IX Gap: <span>{% if title_nine_gap1 is not None %}{{title_nine_gap1}}%{% else %}No reported data{%endif %}</span></h3>
                 <h4>How is the gap calculated?</h4>
-                <p>The Title IX gap is calculated by subtracting the percent of female athletes from the percent of female students enrolled. The difference is the Title IX gap.</p>
+                <p>The Title IX gap is calculated by subtracting the percent of female athletes from the percent of female students enrolled. The difference is the Title IX gap. <strong>A double-digit gap strongly suggests that the school's athletic program is not in compliance with Title IX.</strong></p>
+                <p>If the Title IX gap is "No reported data," this means that 0 girl and 0 boy athletes were reported that year.</p>
             </div>
         </section>
         

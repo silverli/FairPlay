@@ -7,6 +7,11 @@ from django.template import Context, Template
 from webapp.models import District, NewSchool, GradeEnrollment, SportsEnrollment, TitleNineGap
 from django.db.models import Avg
 
+def titleix_zero_remover():
+    reporters = SportsEnrollment.objects.all().exclude(girls=0,boys=0).distinct('real_school_id').values_list('real_school_id',flat=True)
+    nonreporters = NewSchool.objects.all().exclude(id__in=reporters)
+    TitleNineGap.objects.filter(real_school_id__in=nonreporters).update(gap=None)
+
 def title_nine_calc(school, school_year = None):
     
     if(not school_year):
@@ -23,7 +28,6 @@ def title_nine_calc(school, school_year = None):
     for grade_level in enrollment:
         total += grade_level.boys + grade_level.girls
         girls += grade_level.girls
-        print "girls ", grade_level.girls, "boys ", grade_level.boys
         
     print "total girls", girls, "total ", total
     try:
@@ -33,20 +37,16 @@ def title_nine_calc(school, school_year = None):
 
     total_athletes, girl_athletes = 0, 0
     
-    print "########### athletes ################"
     for sport in sports_enrollment:
         total_athletes += sport.girls + sport.boys
         girl_athletes += sport.girls
         print "girls ", sport.girls, "boys ", sport.boys
 
-    print "total girls", girl_athletes, "total athletes", total_athletes
 
     try:
         girl_athlete_percentage = (float(girl_athletes) / float(total_athletes))*100
     except:
         return False
-    
-    print "%enrolled", percent_girls_enrolled, "%athlete", girl_athlete_percentage
     
     return percent_girls_enrolled - girl_athlete_percentage
 
@@ -109,7 +109,6 @@ def school_gaps():
         gap2 = title_nine_calc(school, year_two)
         gap3 = title_nine_calc(school, year_three)
         
-        print gap1, gap2, gap3
         
     year_one = "2012-2013"
     year_two =  "2013-2014"
@@ -120,7 +119,6 @@ def school_gaps():
         gap2 = title_nine_calc(school, year_two)
         gap3 = title_nine_calc(school, year_three)
         
-        print gap1, gap2, gap3
         
         TitleNineGap.objects.create(real_school=school, school_year=year_one, gap=gap1)
         TitleNineGap.objects.create(real_school=school, school_year=year_two, gap=gap2)
@@ -134,9 +132,19 @@ def school_view(request,schoolid):
     data_ge = GradeEnrollment.objects.filter(real_school = school, school_year=schoolyear)
     data_se = SportsEnrollment.objects.filter(real_school = school, school_year=schoolyear).exclude(girls=0,boys=0)
 
-    gap1 = round(TitleNineGap.objects.get(school_year='2012-2013', real_school=school).gap,2)
-    gap2 = round(TitleNineGap.objects.get(school_year='2013-2014', real_school=school).gap,2)
-    gap3 = round(TitleNineGap.objects.get(school_year='2014-2015', real_school=school).gap,2)
+    
+    gap1 = TitleNineGap.objects.get(school_year='2012-2013', real_school=school).gap
+    gap2 = TitleNineGap.objects.get(school_year='2013-2014', real_school=school).gap
+    gap3 = TitleNineGap.objects.get(school_year='2014-2015', real_school=school).gap
+    
+    
+    if gap1 is not None:
+        gap1 = round(gap1, 2)
+    if gap2 is not None:
+        gap2 = round(gap2, 2)
+    if gap3 is not None:
+        gap3 = round(gap3, 2)
+    
     gap_list = [gap1, gap2, gap3]
 
 
@@ -198,7 +206,6 @@ def school_view(request,schoolid):
     boys_athletes = int(boys_athletes)
     new_needed = int(new_needed)
 
-    print "TOTAL BOYS AND GIRLS", total_boys, total_girls
     return render_to_response('school_view.html',{
         "school":school,
         # "opportunities_needed":new_needed,
