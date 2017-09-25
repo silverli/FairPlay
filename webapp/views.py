@@ -87,6 +87,9 @@ class TakeActionPageView(TemplateView):
 
 class DonatePageView(TemplateView):
     template_name = "donate.html"
+
+class TipsPageView(TemplateView):
+    template_name = "tips.html"
     
         
 # def test_view(request):

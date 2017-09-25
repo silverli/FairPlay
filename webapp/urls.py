@@ -6,5 +6,6 @@ urlpatterns = [
     url(r'^$', views.HomePageView.as_view()),
     url(r'^take_action/$', views.TakeActionPageView.as_view()),
     url(r'^donate/$', views.DonatePageView.as_view()),
+    url(r'^tips/$', views.TipsPageView.as_view()),
     # url(r'^', views.index)
 ]

@@ -25,8 +25,7 @@ header h1 {
     clear: both;
 }
 nav {
-    float: right;
-    padding-right: 34px;
+    float: left;
 }
 nav ul{
     padding-left:0;
@@ -35,7 +34,7 @@ nav ul{
 }
 nav ul li{
     display:inline-block;
-    margin-right:20px;
+    margin-right:10px;
 }
 nav ul li:last-child{
     margin-right:0;
@@ -47,6 +46,7 @@ nav ul li a{
     transition:color 0.3s ease-in;
     vertical-align:top;
     text-align:right;
+    font-size: 14px;
     
 }
 nav ul li a:hover, nav ul li a:focus {
@@ -61,9 +61,19 @@ nav ul li a:hover, nav ul li a:focus {
     width: 100%;
 }
 
-@media only screen and (min-width: 561px) {
+@media only screen and (min-width: 400px) {
+    nav ul li {
+        margin-rigth: 20px;
+    }
+    nav ul li a {
+        font-size: 16px;
+    }
+}
+
+@media only screen and (min-width: 675px) {
     nav {
         padding-right: initial;
+        float: right;
     }
     .logo {
         display: inline-block;

@@ -74,7 +74,7 @@ h1 {
     background-color: #f6f6f6;
     color: #4e4e4e;
 }
-.opportunity li{
+.opportunity-wrapper li{
     margin-bottom:1rem; 
 }
 .opportunity-wrapper{
