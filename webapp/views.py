@@ -140,9 +140,17 @@ def school_gaps():
 
 def school_view(request,schoolid):
     school = NewSchool.objects.get(composite_id = schoolid)
-    schoolyear="2014-2015"
-    data_ge = GradeEnrollment.objects.filter(real_school = school, school_year=schoolyear)
-    data_se = SportsEnrollment.objects.filter(real_school = school, school_year=schoolyear).exclude(girls=0,boys=0)
+    schoolyear1="2012-2013"
+    schoolyear2="2013-2014"
+    schoolyear3="2014-2015"
+    data_ge1 = GradeEnrollment.objects.filter(real_school = school, school_year=schoolyear1)
+    data_se1 = SportsEnrollment.objects.filter(real_school = school, school_year=schoolyear1).exclude(girls=0,boys=0)
+    
+    data_ge2 = GradeEnrollment.objects.filter(real_school = school, school_year=schoolyear2)
+    data_se2 = SportsEnrollment.objects.filter(real_school = school, school_year=schoolyear2).exclude(girls=0,boys=0)
+    
+    data_ge3 = GradeEnrollment.objects.filter(real_school = school, school_year=schoolyear3)
+    data_se3 = SportsEnrollment.objects.filter(real_school = school, school_year=schoolyear3).exclude(girls=0,boys=0)
 
     
     gap1 = TitleNineGap.objects.get(school_year='2012-2013', real_school=school).gap
@@ -158,38 +166,85 @@ def school_view(request,schoolid):
         gap3 = round(gap3, 2)
     
     gap_list = [gap1, gap2, gap3]
-
-
-    total_athletes=0
-    boys_athletes=0
-    girls_athletes=0
-    total_students=0
-    total_boys=0
-    total_girls=0
     
-    for result in data_ge:
-        total_boys +=  result.boys
-        total_girls += result.girls
+    #2012-2013 data
+    total_athletes1=0
+    boys_athletes1=0
+    girls_athletes1=0
+    total_students1=0
+    total_boys1=0
+    total_girls1=0
+    
+    for result in data_ge1:
+        total_boys1 +=  result.boys
+        total_girls1 += result.girls
 
-    for result in data_se:
-        boys_athletes += result.boys
-        girls_athletes += result.girls
-        total_athletes += result.students
+    for result in data_se1:
+        boys_athletes1 += result.boys
+        girls_athletes1 += result.girls
+        total_athletes1 += result.students
+    
+    total_athletes1 = float(total_athletes1)
+    girls_athletes1 = float(girls_athletes1)
+    total_students1 = float(total_students1)
+    total_girls1 = float(total_girls1)
+    total_boys1 = float(total_boys1)
+    total_students1 = total_boys1 + total_girls1
+    
+    #2013-2014 data
+    total_athletes2=0
+    boys_athletes2=0
+    girls_athletes2=0
+    total_students2=0
+    total_boys2=0
+    total_girls2=0
+    
+    for result in data_ge2:
+        total_boys2 +=  result.boys
+        total_girls2 += result.girls
+
+    for result in data_se2:
+        boys_athletes2 += result.boys
+        girls_athletes2 += result.girls
+        total_athletes2 += result.students
+    
+    total_athletes2 = float(total_athletes2)
+    girls_athletes2 = float(girls_athletes2)
+    total_students2 = float(total_students2)
+    total_girls2 = float(total_girls2)
+    total_boys2 = float(total_boys2)
+    total_students2 = total_boys2 + total_girls2
+
+    # 2014-2015 data
+    total_athletes3=0
+    boys_athletes3=0
+    girls_athletes3=0
+    total_students3=0
+    total_boys3=0
+    total_girls3=0
+    
+    for result in data_ge3:
+        total_boys3 +=  result.boys
+        total_girls3 += result.girls
+
+    for result in data_se3:
+        boys_athletes3 += result.boys
+        girls_athletes3 += result.girls
+        total_athletes3 += result.students
     
    
-    proportion_girls = 0
-    proportion_girls_athletes = 0
-    new_needed = 0
-    total_athletes = float(total_athletes)
-    proportion_girls = float(proportion_girls)
-    proportion_girls_athletes = float(proportion_girls_athletes)
-    girls_athletes = float(girls_athletes)
-    total_students = float(total_students)
-    new_needed = float(new_needed)
-    total_girls = float(total_girls)
-    total_students = float(total_students)
-    total_boys = float(total_boys)
-    total_students = total_boys + total_girls
+    proportion_girls3 = 0
+    proportion_girls_athletes3 = 0
+    new_needed3 = 0
+    total_athletes3 = float(total_athletes3)
+    proportion_girls3 = float(proportion_girls3)
+    proportion_girls_athletes3 = float(proportion_girls_athletes3)
+    girls_athletes3 = float(girls_athletes3)
+    total_students3 = float(total_students3)
+    new_needed3 = float(new_needed3)
+    total_girls3 = float(total_girls3)
+    total_boys3 = float(total_boys3)
+    total_students3 = total_boys3 + total_girls3
     # proportion_girls = total_girls / total_students * 100
 #    proportion_girls_athletes= girls_athletes / total_athletes * 100
     # new_needed = total_girls / total_students * total_athletes - girls_athletes # number of opportunities needed to achieve equity
@@ -212,11 +267,21 @@ def school_view(request,schoolid):
     avg_county_gap_1415 = TitleNineGap.objects.filter(school_year='2014-2015',real_school__county=school.county).aggregate(Avg('gap'))
     county_avg_list = [avg_county_gap_1213, avg_county_gap_1314, avg_county_gap_1415]
     
-    total_boys = int(total_boys)
-    total_girls = int(total_girls)
-    girls_athletes = int(girls_athletes)
-    boys_athletes = int(boys_athletes)
-    new_needed = int(new_needed)
+    total_boys1 = int(total_boys1)
+    total_girls1 = int(total_girls1)
+    girls_athletes1 = int(girls_athletes1)
+    boys_athletes1 = int(boys_athletes1)
+    
+    total_boys2 = int(total_boys2)
+    total_girls2 = int(total_girls2)
+    girls_athletes2 = int(girls_athletes2)
+    boys_athletes2 = int(boys_athletes2)
+    
+    total_boys3 = int(total_boys3)
+    total_girls3 = int(total_girls3)
+    girls_athletes3 = int(girls_athletes3)
+    boys_athletes3 = int(boys_athletes3)
+    new_needed3 = int(new_needed3)
 
     return render_to_response('school_view.html',{
         "school":school,
@@ -230,10 +295,18 @@ def school_view(request,schoolid):
         "county_avg2":county_avg_list[1],
         "county_avg3":county_avg_list[2],
         # "highsc_avg":19,
-        "boys":total_boys,
-        "girls":total_girls,
-        "boy_ath":boys_athletes,
-        "girl_ath":girls_athletes,
+        "boys1":total_boys1,
+        "girls1":total_girls1,
+        "boy_ath1":boys_athletes1,
+        "girl_ath1":girls_athletes1,
+        "boys2":total_boys2,
+        "girls2":total_girls2,
+        "boy_ath2":boys_athletes2,
+        "girl_ath2":girls_athletes2,
+        "boys3":total_boys3,
+        "girls3":total_girls3,
+        "boy_ath3":boys_athletes3,
+        "girl_ath3":girls_athletes3,
         "title_nine_gap1":gap_list[0],
         "title_nine_gap2":gap_list[1],
         "title_nine_gap3":gap_list[2]
